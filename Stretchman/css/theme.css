@@ -1,0 +1,21 @@
+:root {
+
+    --primary: #2148C0;
+    --primary-light: #5D8DFF;
+
+    --background: #1638AE;
+
+    --card: #FFFFFF;
+
+    --text: #202020;
+    --text-light: #777777;
+
+    --white: #FFFFFF;
+    --black: #000000;
+
+    --radius: 24px;
+
+    --shadow: 0 8px 25px rgba(0, 0, 0, .15);
+
+    --transition: .3s;
+}

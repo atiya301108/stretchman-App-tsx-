@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Stretchman - บันทึกอาการ</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/record.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+    <main class="record-page">
+
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header class="record-header">
+
+            <button
+                class="back-button"
+                id="backBtn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+            </button>
+
+
+            <h1 id="areaTitle">
+                คอ
+            </h1>
+
+
+            <button
+                class="info-button"
+                id="infoBtn">
+
+                <i class="fa-solid fa-info"></i>
+
+            </button>
+
+        </header>
+
+
+
+        <!-- =========================
+             BODY IMAGE
+        ========================== -->
+
+        <section class="pain-image-section">
+
+            <div class="body-circle">
+
+                <img
+                    id="painImage"
+                    src="images/back.png"
+                    alt="Pain Area">
+
+                <!-- จุดแสดงตำแหน่งปวด -->
+
+                <div
+                    id="painPoint"
+                    class="pain-point">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PAIN LEVEL
+        ========================== -->
+
+        <section class="pain-level-section">
+
+            <h2>
+                ระดับความปวด
+            </h2>
+
+
+            <div class="pain-scale">
+
+                <button
+                    class="pain-level"
+                    data-level="1">
+
+                    <span>1</span>
+
+                </button>
+
+
+                <button
+                    class="pain-level"
+                    data-level="2">
+
+                    <span>2</span>
+
+                </button>
+
+
+                <button
+                    class="pain-level"
+                    data-level="3">
+
+                    <span>3</span>
+
+                </button>
+
+
+                <button
+                    class="pain-level"
+                    data-level="4">
+
+                    <span>4</span>
+
+                </button>
+
+
+                <button
+                    class="pain-level"
+                    data-level="5">
+
+                    <span>5</span>
+
+                </button>
+
+            </div>
+
+
+            <div class="scale-labels">
+
+                <span>ปวดน้อย</span>
+
+                <span>ปวดมาก</span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SYMPTOM TYPE
+        ========================== -->
+
+        <section class="symptom-section">
+
+            <h2>
+                เลือกประเภทอาการ
+            </h2>
+
+
+            <div class="symptom-grid">
+
+
+                <button
+                    class="symptom-button"
+                    data-symptom="ตึง">
+
+                    <i class="fa-solid fa-person"></i>
+
+                    <span>
+                        ตึง
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="symptom-button"
+                    data-symptom="ปวด">
+
+                    <i class="fa-solid fa-burst"></i>
+
+                    <span>
+                        ปวด
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="symptom-button"
+                    data-symptom="ชา/เจ็บ">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    <span>
+                        ชา/เจ็บ
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="symptom-button"
+                    data-symptom="แสบร้อน">
+
+                    <i class="fa-solid fa-fire"></i>
+
+                    <span>
+                        แสบร้อน
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SAVE
+        ========================== -->
+
+        <button
+            class="save-button"
+            id="saveBtn">
+
+            บันทึกอาการ
+
+        </button>
+
+
+
+        <!-- =========================
+             BOTTOM NAV
+        ========================== -->
+
+        <nav class="bottom-nav">
+
+
+            <button class="nav-item active">
+
+                <i class="fa-solid fa-house"></i>
+
+            </button>
+
+
+            <button class="nav-item">
+
+                <i class="fa-solid fa-book-open"></i>
+
+            </button>
+
+
+            <button class="nav-item">
+
+                <i class="fa-regular fa-bell"></i>
+
+            </button>
+
+
+            <button class="nav-item">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+            </button>
+
+
+            <button class="nav-item">
+
+                <i class="fa-solid fa-sun"></i>
+
+            </button>
+
+
+        </nav>
+
+
+    </main>
+
+
+    <script src="js/record.js"></script>
+
+</body>
+
+</html>

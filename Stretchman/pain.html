@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stretchman - Pain Area</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pain.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <main class="pain-page">
+
+        <header class="pain-header">
+            <button class="back-button" id="backBtn">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="header-title">
+                <h1>Choose Pain Area</h1>
+                <p>เลือกบริเวณที่คุณรู้สึกปวด</p>
+            </div>
+        </header>
+
+        <section class="body-selector">
+
+    <div class="body-map">
+
+        <!-- รูปร่างด้านหลังเท่านั้น -->
+        <img
+            src="images/back.png"
+            id="bodyImage"
+            class="body-image"
+            alt="Back Body Map"
+        >
+
+
+        <!-- =========================
+             BACK HOTSPOTS
+        ========================== -->
+
+        <div id="backHotspots" class="hotspots">
+
+            <button
+                class="hotspot back-neck"
+                data-area="คอ"
+                aria-label="คอ">
+                <span></span>
+            </button>
+
+
+            <button
+                class="hotspot back-shoulder-left"
+                data-area="ไหล่ซ้าย"
+                aria-label="ไหล่ซ้าย">
+                <span></span>
+            </button>
+
+
+            <button
+                class="hotspot back-shoulder-right"
+                data-area="ไหล่ขวา"
+                aria-label="ไหล่ขวา">
+                <span></span>
+            </button>
+
+
+            <button
+                class="hotspot back-upper"
+                data-area="หลังส่วนบน"
+                aria-label="หลังส่วนบน">
+                <span></span>
+            </button>
+
+
+            <button
+                class="hotspot back-lower"
+                data-area="หลังส่วนล่าง"
+                aria-label="หลังส่วนล่าง">
+                <span></span>
+            </button>
+
+
+            <button
+                class="hotspot back-waist"
+                data-area="เอว"
+                aria-label="เอว">
+                <span></span>
+            </button>
+
+
+
+            <button
+                class="hotspot back-knee-left"
+                data-area="เข่าซ้าย"
+                aria-label="เข่าซ้าย">
+                <span></span>
+            </button>
+
+
+            <button
+                class="hotspot back-knee-right"
+                data-area="เข่าขวา"
+                aria-label="เข่าขวา">
+                <span></span>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+            </div>
+        </section>
+
+        <section class="selected-area">
+            <p>บริเวณที่เลือก</p>
+            <h2 id="selectedArea">
+                ยังไม่ได้เลือก
+            </h2>
+        </section>
+
+        <button class="continue-button" id="continueBtn">
+            <span>ถัดไป</span>
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <nav class="bottom-nav">
+            <button class="nav-item active">
+                <i class="fa-solid fa-house"></i>
+            </button>
+            <button class="nav-item">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+            <button class="nav-item">
+                <i class="fa-solid fa-store"></i>
+            </button>
+            <button class="nav-item">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+        </nav>
+
+    </main>
+
+    <script src="js/pain.js"></script>
+
+</body>
+
+</html>

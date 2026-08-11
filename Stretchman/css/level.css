@@ -1,0 +1,464 @@
+/* =====================================
+   LEVEL PAGE
+===================================== */
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background: #1638AE;
+
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+/* =====================================
+   PAGE
+===================================== */
+
+.level-page {
+
+    width: min(100%, 430px);
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.level-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: white;
+
+    margin-bottom: 20px;
+
+}
+
+
+.back-button {
+
+    width: 48px;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #2148C0;
+
+    font-size: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.back-button:hover {
+
+    transform: translateX(-4px);
+
+}
+
+
+.level-header h1 {
+
+    margin: 0;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+}
+
+
+.level-header p {
+
+    margin: 3px 0 0;
+
+    font-size: 12px;
+
+    opacity: .8;
+
+}
+
+
+/* =====================================
+   PAIN INFO
+===================================== */
+
+.pain-info {
+
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 18px 22px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.15);
+
+}
+
+
+.pain-info p {
+
+    margin: 0;
+
+    color: #777;
+
+    font-size: 13px;
+
+}
+
+
+.pain-info h2 {
+
+    margin: 3px 0 0;
+
+    color: #2148C0;
+
+    font-size: 28px;
+
+}
+
+
+/* =====================================
+   QUESTION
+===================================== */
+
+.question {
+
+    text-align: center;
+
+    color: white;
+
+    margin-bottom: 18px;
+
+}
+
+
+.question h2 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+}
+
+
+.question p {
+
+    margin: 5px 0 0;
+
+    font-size: 12px;
+
+    opacity: .8;
+
+}
+
+
+/* =====================================
+   LEVEL LIST
+===================================== */
+
+.level-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    flex: 1;
+
+}
+
+
+/* =====================================
+   LEVEL BUTTON
+===================================== */
+
+.level-button {
+
+    width: 100%;
+
+    min-height: 62px;
+
+    border: 3px solid transparent;
+
+    border-radius: 25px;
+
+    background: white;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 8px 15px;
+
+    gap: 14px;
+
+    color: #2148C0;
+
+    font-family: 'Poppins', sans-serif;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.level-button:hover {
+
+    transform: translateX(4px);
+
+}
+
+
+.level-button.selected {
+
+    border-color: #65a0ff;
+
+    background: #e9f1ff;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.12);
+
+}
+
+
+/* =====================================
+   NUMBER
+===================================== */
+
+.level-number {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #dce9ff;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================
+   FACE
+===================================== */
+
+.level-face {
+
+    font-size: 25px;
+
+}
+
+
+/* =====================================
+   TEXT
+===================================== */
+
+.level-text {
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+}
+
+
+/* =====================================
+   CONTINUE
+===================================== */
+
+.continue-button {
+
+    width: 100%;
+
+    height: 58px;
+
+    margin: 18px 0 15px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #2148C0;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.continue-button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+.continue-button:active {
+
+    transform: scale(.96);
+
+}
+
+
+/* =====================================
+   BOTTOM NAV
+===================================== */
+
+.bottom-nav {
+
+    height: 62px;
+
+    background: white;
+
+    border-radius: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.15);
+
+}
+
+
+.nav-item {
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #82a7ff;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+}
+
+
+.nav-item.active {
+
+    background: #dce9ff;
+
+    color: #82a7ff;
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-height: 700px) {
+
+    .level-page {
+
+        padding-top: 12px;
+
+    }
+
+    .level-header {
+
+        margin-bottom: 12px;
+
+    }
+
+    .pain-info {
+
+        padding: 12px 18px;
+
+        margin-bottom: 12px;
+
+    }
+
+    .level-button {
+
+        min-height: 53px;
+
+    }
+
+    .continue-button {
+
+        margin-top: 10px;
+
+    }
+
+}

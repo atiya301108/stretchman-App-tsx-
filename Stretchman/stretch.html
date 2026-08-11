@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stretchman - Motion Tracking</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/stretch.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<main class="stretch-page">
+
+    <!-- CAMERA -->
+    <section class="camera-area">
+
+        <video
+            id="camera"
+            autoplay
+            playsinline
+            muted>
+        </video>
+
+        <canvas id="poseCanvas"></canvas>
+
+
+        <!-- TOP BAR -->
+
+        <div class="camera-top">
+
+            <button id="backBtn" class="icon-button">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+
+            <div class="exercise-title">
+                <h1 id="exerciseName">
+                    ท่ายืดกล้ามเนื้อ
+                </h1>
+
+                <p>
+                    Motion Tracking
+                </p>
+            </div>
+
+            <div class="ai-status" id="aiStatus">
+                <span></span>
+                AI
+            </div>
+
+        </div>
+
+
+        <!-- EXAMPLE POSE -->
+
+        <div class="example-card">
+
+            <div class="example-title">
+                ตัวอย่างท่า
+            </div>
+
+            <img
+                id="exampleImage"
+                src=""
+                alt="ตัวอย่างท่า">
+
+            <div
+                class="example-placeholder"
+                id="examplePlaceholder">
+
+                <i class="fa-solid fa-person"></i>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRACKING STATUS -->
+
+        <div
+            class="tracking-message"
+            id="trackingMessage">
+
+            กำลังเตรียมกล้อง...
+
+        </div>
+
+
+        <!-- TIMER -->
+
+        <div class="timer-box">
+
+            <span id="timer">
+                20
+            </span>
+
+            <small>
+                วินาที
+            </small>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTROLS -->
+
+    <section class="controls">
+
+        <button
+            class="control-button"
+            id="resetBtn">
+
+            <i class="fa-solid fa-rotate-left"></i>
+
+        </button>
+
+
+        <button
+            class="start-button"
+            id="startBtn">
+
+            <i
+                class="fa-solid fa-camera"
+                id="startIcon">
+            </i>
+
+            <span id="startText">
+                เปิดกล้อง
+            </span>
+
+        </button>
+
+
+        <button
+            class="control-button"
+            id="skipBtn">
+
+            <i class="fa-solid fa-forward"></i>
+
+        </button>
+
+    </section>
+
+
+    <!-- COMPLETE -->
+
+    <button
+        class="complete-button"
+        id="completeBtn">
+
+        <i class="fa-solid fa-check"></i>
+
+        ทำท่านี้เสร็จแล้ว
+
+    </button>
+
+
+    <!-- BOTTOM NAV -->
+
+    <nav class="bottom-nav">
+
+        <button class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+        </button>
+
+        <button class="nav-item">
+            <i class="fa-solid fa-book-open"></i>
+        </button>
+
+        <button class="nav-item">
+            <i class="fa-regular fa-bell"></i>
+        </button>
+
+        <button class="nav-item">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+
+        <button class="nav-item">
+            <i class="fa-solid fa-gear"></i>
+        </button>
+
+    </nav>
+
+</main>
+
+
+<!-- MediaPipe -->
+
+<script type="module" src="js/stretch.js"></script>
+
+</body>
+</html>

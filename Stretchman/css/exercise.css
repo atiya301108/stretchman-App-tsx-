@@ -1,0 +1,571 @@
+/* =====================================
+   EXERCISE PAGE
+===================================== */
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    background: #123b91;
+
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+.exercise-page {
+
+    width: min(100%, 430px);
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding: 15px 20px 16px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+    color: white;
+
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+.exercise-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.back-button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+
+.header-title {
+
+    flex: 1;
+
+}
+
+
+.header-title h1 {
+
+    margin: 0;
+
+    font-size: 21px;
+
+    font-weight: 600;
+
+}
+
+
+.header-title p {
+
+    margin: 2px 0 0;
+
+    font-size: 11px;
+
+    opacity: .75;
+
+}
+
+
+.header-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.15);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 19px;
+
+}
+
+
+/* =====================================
+   SELECTED INFO
+===================================== */
+
+.selected-info {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.info-item {
+
+    min-height: 65px;
+
+    padding: 8px;
+
+    box-sizing: border-box;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.10);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+.info-item span {
+
+    font-size: 9px;
+
+    opacity: .7;
+
+}
+
+
+.info-item strong {
+
+    margin-top: 3px;
+
+    font-size: 13px;
+
+    color: white;
+
+}
+
+
+/* =====================================
+   TITLE
+===================================== */
+
+.recommend-title {
+
+    margin-bottom: 12px;
+
+}
+
+
+.recommend-title h2 {
+
+    margin: 0;
+
+    font-size: 19px;
+
+}
+
+
+.recommend-title p {
+
+    margin: 3px 0 0;
+
+    font-size: 11px;
+
+    opacity: .75;
+
+}
+
+
+/* =====================================
+   EXERCISE LIST
+===================================== */
+
+.exercise-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    overflow-y: auto;
+
+    padding-right: 2px;
+
+    flex: 1;
+
+}
+
+
+/* =====================================
+   EXERCISE CARD
+===================================== */
+
+.exercise-card {
+
+    min-height: 100px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #153c91;
+
+    cursor: pointer;
+
+    border: 3px solid transparent;
+
+    transition: .2s;
+
+}
+
+
+.exercise-card:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+.exercise-card.selected {
+
+    border-color: #66a0ff;
+
+    background: #eef4ff;
+
+}
+
+
+/* =====================================
+   EXERCISE IMAGE
+===================================== */
+
+.exercise-image {
+
+    width: 82px;
+
+    height: 82px;
+
+    flex-shrink: 0;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background: #dce9ff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.exercise-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.exercise-placeholder {
+
+    font-size: 28px;
+
+    color: #6d99ed;
+
+}
+
+
+/* =====================================
+   EXERCISE CONTENT
+===================================== */
+
+.exercise-content {
+
+    flex: 1;
+
+}
+
+
+.exercise-content h3 {
+
+    margin: 0;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+
+.exercise-content p {
+
+    margin: 4px 0;
+
+    font-size: 10px;
+
+    color: #777;
+
+}
+
+
+.exercise-time {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #5d86dd;
+
+    font-size: 10px;
+
+}
+
+
+.exercise-check {
+
+    width: 25px;
+
+    height: 25px;
+
+    border-radius: 50%;
+
+    border: 2px solid #8eb0f5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+}
+
+
+.exercise-card.selected
+.exercise-check {
+
+    background: #2360e8;
+
+    border-color: #2360e8;
+
+    color: white;
+
+}
+
+
+/* =====================================
+   START BUTTON
+===================================== */
+
+.start-button {
+
+    width: 100%;
+
+    height: 55px;
+
+    margin: 15px 0;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #1755f5,
+            #3180ff
+        );
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.18);
+
+}
+
+
+.start-button:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================
+   BOTTOM NAV
+===================================== */
+
+.bottom-nav {
+
+    height: 60px;
+
+    flex-shrink: 0;
+
+    background: white;
+
+    border-radius: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+}
+
+
+.nav-item {
+
+    width: 45px;
+
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: #82a7ff;
+
+    font-size: 18px;
+
+}
+
+
+.nav-item.active {
+
+    background: #dce9ff;
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-height: 700px) {
+
+    .exercise-page {
+
+        padding-top: 8px;
+
+    }
+
+
+    .exercise-header {
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .selected-info {
+
+        margin-bottom: 12px;
+
+    }
+
+
+    .exercise-card {
+
+        min-height: 85px;
+
+    }
+
+
+    .exercise-image {
+
+        width: 65px;
+
+        height: 65px;
+
+    }
+
+
+    .start-button {
+
+        margin: 9px 0;
+
+    }
+
+}

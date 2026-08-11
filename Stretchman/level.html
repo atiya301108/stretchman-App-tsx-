@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Stretchman - Pain Level</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/level.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+    <main class="level-page">
+
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header class="level-header">
+
+            <button
+                class="back-button"
+                id="backBtn">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+            </button>
+
+
+            <div>
+
+                <h1>
+                    ระดับความปวด
+                </h1>
+
+                <p>
+                    บอกเราว่าคุณปวดมากแค่ไหน
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================
+             SELECTED AREA
+        ========================== -->
+
+        <section class="pain-info">
+
+            <p>
+                บริเวณที่คุณเลือก
+            </p>
+
+            <h2 id="painArea">
+                -
+            </h2>
+
+        </section>
+
+
+
+        <!-- =========================
+             QUESTION
+        ========================== -->
+
+        <section class="question">
+
+            <h2>
+                คุณปวดมากแค่ไหน?
+            </h2>
+
+            <p>
+                เลือกระดับความปวดตั้งแต่ 1 - 5
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             PAIN LEVEL
+        ========================== -->
+
+        <section class="level-list">
+
+
+            <button
+                class="level-button"
+                data-level="1">
+
+                <span class="level-number">
+                    1
+                </span>
+
+                <span class="level-face">
+                    😄
+                </span>
+
+                <span class="level-text">
+                    ปวดน้อยมาก
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="level-button"
+                data-level="2">
+
+                <span class="level-number">
+                    2
+                </span>
+
+                <span class="level-face">
+                    🙂
+                </span>
+
+                <span class="level-text">
+                    ปวดเล็กน้อย
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="level-button"
+                data-level="3">
+
+                <span class="level-number">
+                    3
+                </span>
+
+                <span class="level-face">
+                    😐
+                </span>
+
+                <span class="level-text">
+                    ปวดปานกลาง
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="level-button"
+                data-level="4">
+
+                <span class="level-number">
+                    4
+                </span>
+
+                <span class="level-face">
+                    😣
+                </span>
+
+                <span class="level-text">
+                    ปวดมาก
+                </span>
+
+            </button>
+
+
+
+            <button
+                class="level-button"
+                data-level="5">
+
+                <span class="level-number">
+                    5
+                </span>
+
+                <span class="level-face">
+                    😭
+                </span>
+
+                <span class="level-text">
+                    ปวดมากที่สุด
+                </span>
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTINUE
+        ========================== -->
+
+        <button
+            class="continue-button"
+            id="continueBtn">
+
+            <span>
+                ถัดไป
+            </span>
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+
+
+        <!-- =========================
+             BOTTOM NAV
+        ========================== -->
+
+        <nav class="bottom-nav">
+
+
+            <button class="nav-item active">
+
+                <i class="fa-solid fa-house"></i>
+
+            </button>
+
+
+            <button class="nav-item">
+
+                <i class="fa-solid fa-book-open"></i>
+
+            </button>
+
+
+            <button class="nav-item">
+
+                <i class="fa-regular fa-bell"></i>
+
+            </button>
+
+
+            <button class="nav-item">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+            </button>
+
+
+            <button class="nav-item">
+
+                <i class="fa-solid fa-sun"></i>
+
+            </button>
+
+
+        </nav>
+
+
+    </main>
+
+
+    <script src="js/level.js"></script>
+
+</body>
+
+</html>
