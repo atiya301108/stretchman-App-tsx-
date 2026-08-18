@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Probability Slot Machine</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="game">
+
+        <h1>🎰 SLOT MACHINE</h1>
+
+        <p class="subtitle">Probability Experiment</p>
+
+        <!-- วงล้อ -->
+        <div class="slot-container">
+
+            <div class="slot">
+                <div id="slot1">1</div>
+            </div>
+
+            <div class="slot">
+                <div id="slot2">1</div>
+            </div>
+
+            <div class="slot">
+                <div id="slot3">1</div>
+            </div>
+
+        </div>
+
+        <!-- ข้อความผลลัพธ์ -->
+        <div id="result">กดปุ่มเพื่อเริ่มสุ่ม</div>
+
+        <!-- ปุ่มสุ่ม -->
+        <button id="spinButton">
+            SPIN
+        </button>
+
+        <!-- สถิติ -->
+        <div class="stats">
+
+            <div>
+                <span>จำนวนครั้งที่สุ่ม</span>
+                <strong id="spinCount">0</strong>
+            </div>
+
+            <div>
+                <span>JACKPOT</span>
+                <strong id="jackpotCount">0</strong>
+            </div>
+
+        </div>
+
+        <p class="probability">
+            โอกาส Jackpot ตามทฤษฎี = 1 / 49 ≈ 2.04%
+        </p>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -17,7 +17,76 @@
 <body>
 
     <main class="home-page">
+<div class="stats-container">
 
+    <div class="stat-card">
+
+        <span class="stat-icon">
+            🔥
+        </span>
+
+        <div>
+
+            <strong data-streak>
+                0
+            </strong>
+
+            <small>
+                Streak
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-icon">
+            🪙
+        </span>
+
+        <div>
+
+            <strong data-coins>
+                0
+            </strong>
+
+            <small>
+                Coins
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="xp-container">
+
+    <div class="xp-header">
+
+        <span>
+            Level
+            <strong data-level>1</strong>
+        </span>
+
+        <span data-xp-label>
+            0 / 100 XP
+        </span>
+
+    </div>
+
+
+    <div class="xp-background">
+
+        <div
+            class="xp-fill"
+            data-xp-bar>
+        </div>
+
+    </div>
+
+</div>
         <div class="top-stats">
             <div class="stat-badge streak">
                 <i class="fa-solid fa-fire"></i>
@@ -46,7 +115,7 @@
         </section>
 
         <section class="body-section">
-            <img src="images/front.png" alt="Body Map" class="body-image">
+            <img src="images/back.png" alt="Body Map" class="body-image">
         </section>
 
         <button class="start-button" id="startBtn">
@@ -54,24 +123,59 @@
         </button>
 
         <nav class="bottom-nav">
-            <button class="nav-item active">
-                <i class="fa-solid fa-house"></i>
-            </button>
-            <button class="nav-item">
-                <i class="fa-regular fa-bell"></i>
-            </button>
-            <button class="nav-item">
-                <i class="fa-solid fa-store"></i>
-            </button>
-            <button class="nav-item">
-                <i class="fa-solid fa-gear"></i>
-            </button>
-        </nav>
+
+    <a href="home.html"
+       class="nav-item">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>Home</span>
+
+    </a>
+
+
+    <a href="quest.html"
+       class="nav-item">
+
+        <i class="fa-solid fa-book-open"></i>
+
+        <span>Quest</span>
+
+    </a>
+
+
+    <a href="alarm.html"
+       class="nav-item">
+
+        <i class="fa-solid fa-bell"></i>
+
+        <span>Alarm</span>
+
+    </a>
+
+
+    <a href="shop.html"
+       class="nav-item">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        <span>Shop</span>
+
+    </a>
+
+
+    <a href="settings.html"
+       class="nav-item">
+
+        <i class="fa-solid fa-gear"></i>
+
+        <span>Settings</span>
+</nav>
 
     </main>
 
     <script src="js/home.js"></script>
-
+<script src="js/theme.js"></script>
 </body>
 
 </html>

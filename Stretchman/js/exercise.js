@@ -39,18 +39,30 @@ const backBtn =
    SHOW USER DATA
 ===================================== */
 
-areaElement.textContent =
-    painArea || "-";
+if (areaElement) {
+
+    areaElement.textContent =
+        painArea || "-";
+
+}
 
 
-levelElement.textContent =
-    painLevel
-        ? `${painLevel}/5`
-        : "-";
+if (levelElement) {
+
+    levelElement.textContent =
+        painLevel
+            ? `${painLevel}/5`
+            : "-";
+
+}
 
 
-typeElement.textContent =
-    painType || "-";
+if (typeElement) {
+
+    typeElement.textContent =
+        painType || "-";
+
+}
 
 
 /* =====================================
@@ -58,7 +70,6 @@ typeElement.textContent =
 ===================================== */
 
 const exercises = {
-
 
     "คอ": [
 
@@ -293,12 +304,16 @@ let recommendedExercises =
 
 function renderExercises() {
 
+    if (!exerciseList) {
+        return;
+    }
+
+
     exerciseList.innerHTML = "";
 
 
     recommendedExercises.forEach(
         (exercise, index) => {
-
 
             const card =
                 document.createElement("div");
@@ -372,10 +387,13 @@ function renderExercises() {
                             ".exercise-card"
                         )
                         .forEach(
-                            item =>
+                            item => {
+
                                 item.classList.remove(
                                     "selected"
-                                )
+                                );
+
+                            }
                         );
 
 
@@ -393,7 +411,9 @@ function renderExercises() {
             );
 
 
-            exerciseList.appendChild(card);
+            exerciseList.appendChild(
+                card
+            );
 
         }
     );
@@ -405,13 +425,14 @@ renderExercises();
 
 
 /* =====================================
-   START
+   START EXERCISE
 ===================================== */
 
-startBtn.addEventListener(
+if (startBtn) {
+
+    startBtn.addEventListener(
     "click",
     () => {
-
 
         const selectedExercise =
             localStorage.getItem(
@@ -419,7 +440,9 @@ startBtn.addEventListener(
             );
 
 
-        if (selectedExercise === null) {
+        if (
+            selectedExercise === null
+        ) {
 
             alert(
                 "กรุณาเลือกท่ายืดก่อน"
@@ -430,27 +453,38 @@ startBtn.addEventListener(
         }
 
 
-        /*
-         * ไปหน้าทำท่ายืด
-         */
+        /* =========================
+           RESET REWARD SESSION
+        ========================= */
+
+        resetRewardSession();
+
+
+        /* =========================
+           GO STRETCH
+        ========================= */
 
         window.location.href =
             "stretch.html";
 
     }
 );
-
+}
 
 /* =====================================
    BACK
 ===================================== */
 
-backBtn.addEventListener(
-    "click",
-    () => {
+if (backBtn) {
 
-        window.location.href =
-            "record.html";
+    backBtn.addEventListener(
+        "click",
+        () => {
 
-    }
-);
+            window.location.href =
+                "record.html";
+
+        }
+    );
+
+}

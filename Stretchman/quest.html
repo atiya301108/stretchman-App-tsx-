@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Stretchman - Quest</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/quest.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+<main class="quest-page">
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="quest-header">
+
+        <div>
+
+            <h1>
+                Quest
+            </h1>
+
+            <p>
+                ภารกิจของคุณ
+            </p>
+
+        </div>
+
+        <div class="quest-header-icon">
+
+            <i class="fa-solid fa-scroll"></i>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         XP / COINS
+    ========================== -->
+
+    <section class="reward-summary">
+
+        <div class="reward-card xp-card">
+
+            <div class="reward-icon">
+                ⭐
+            </div>
+
+            <div>
+
+                <span>
+                    XP
+                </span>
+
+                <strong id="questXP">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="reward-card coin-card">
+
+            <div class="reward-icon">
+                🪙
+            </div>
+
+            <div>
+
+                <span>
+                    Coins
+                </span>
+
+                <strong id="questCoins">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         DAILY QUEST
+    ========================== -->
+
+    <section class="quest-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Daily Quest
+                </h2>
+
+                <p>
+                    ภารกิจประจำวัน
+                </p>
+
+            </div>
+
+            <i class="fa-solid fa-calendar-day"></i>
+
+        </div>
+
+
+        <!-- พื้นที่สำหรับ Quest -->
+
+        <div
+            class="empty-quest"
+            id="dailyQuest">
+
+            <div class="empty-icon">
+
+                <i class="fa-solid fa-list-check"></i>
+
+            </div>
+
+            <h3>
+                ยังไม่มีภารกิจ
+            </h3>
+
+            <p>
+                ภารกิจประจำวันจะแสดงที่นี่
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         WEEKLY QUEST
+    ========================== -->
+
+    <section class="quest-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    Weekly Quest
+                </h2>
+
+                <p>
+                    ภารกิจประจำสัปดาห์
+                </p>
+
+            </div>
+
+            <i class="fa-solid fa-calendar-week"></i>
+
+        </div>
+
+
+        <div
+            class="empty-quest"
+            id="weeklyQuest">
+
+            <div class="empty-icon">
+
+                <i class="fa-solid fa-trophy"></i>
+
+            </div>
+
+            <h3>
+                ยังไม่มีภารกิจ
+            </h3>
+
+            <p>
+                ภารกิจประจำสัปดาห์จะแสดงที่นี่
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         BOTTOM NAV
+    ========================== -->
+
+    <nav class="bottom-nav">
+
+        <a
+            href="home.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                Home
+            </span>
+
+        </a>
+
+
+        <a
+            href="quest.html"
+            class="nav-item active">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <span>
+                Quest
+            </span>
+
+        </a>
+
+
+        <a
+            href="alarm.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>
+                Alarm
+            </span>
+
+        </a>
+
+
+        <a
+            href="shop.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span>
+                Shop
+            </span>
+
+        </a>
+
+
+        <a
+            href="settings.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>
+                Settings
+            </span>
+
+        </a>
+
+    </nav>
+
+
+</main>
+
+
+<script src="js/app.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/quest.js"></script>
+
+</body>
+
+</html>

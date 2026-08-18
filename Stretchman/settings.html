@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Stretchman - Settings</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/settings.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+<main class="settings-page">
+
+    <!-- HEADER -->
+
+    <header class="settings-header">
+
+        <div>
+
+            <h1>
+                Settings
+            </h1>
+
+            <p>
+                ตั้งค่าการใช้งาน Stretchman
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- PROFILE -->
+
+    <section class="settings-profile">
+
+        <div class="profile-avatar">
+            👤
+        </div>
+
+        <div class="profile-info">
+
+            <strong id="profileName">
+                Atiya
+            </strong>
+
+            <span>
+                Level <b data-level>1</b>
+            </span>
+
+            <div class="profile-xp">
+
+                <div class="xp-bar">
+
+                    <div
+                        class="xp-progress"
+                        id="xpProgress">
+                    </div>
+
+                </div>
+
+                <small id="xpText">
+                    0 XP
+                </small>
+
+            </div>
+
+        </div>
+
+        <button
+            class="edit-profile"
+            id="editProfileBtn">
+
+            <i class="fa-solid fa-pen"></i>
+
+        </button>
+
+    </section>
+
+
+    <!-- ACCOUNT -->
+
+    <section class="settings-section">
+
+        <h2>
+            บัญชี
+        </h2>
+
+
+        <button
+            class="setting-item"
+            id="profileBtn">
+
+            <div class="setting-icon blue">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div class="setting-content">
+
+                <strong>
+                    โปรไฟล์
+                </strong>
+
+                <span>
+                    จัดการข้อมูลผู้ใช้งาน
+                </span>
+
+            </div>
+
+            <i class="fa-solid fa-chevron-right arrow"></i>
+
+        </button>
+
+    </section>
+
+
+    <!-- NOTIFICATION -->
+
+    <section class="settings-section">
+
+        <h2>
+            การแจ้งเตือน
+        </h2>
+
+
+        <div class="setting-item">
+
+            <div class="setting-icon orange">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <div class="setting-content">
+
+                <strong>
+                    การแจ้งเตือน
+                </strong>
+
+                <span>
+                    แจ้งเตือนเมื่อถึงเวลายืด
+                </span>
+
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="notificationToggle">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+
+        <div class="setting-item">
+
+            <div class="setting-icon red">
+                🔥
+            </div>
+
+            <div class="setting-content">
+
+                <strong>
+                    Streak Reminder
+                </strong>
+
+                <span>
+                    เตือนเมื่อยังไม่ได้ยืดวันนี้
+                </span>
+
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="streakToggle">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+    </section>
+
+
+    <!-- APP -->
+
+    <section class="settings-section">
+
+        <h2>
+            แอปพลิเคชัน
+        </h2>
+
+
+        <div class="setting-item">
+
+            <div class="setting-icon purple">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+
+            <div class="setting-content">
+
+                <strong>
+                    Dark Mode
+                </strong>
+
+                <span>
+                    เปลี่ยนธีมของแอป
+                </span>
+
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="darkModeToggle">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+
+        <div class="setting-item">
+
+            <div class="setting-icon green">
+                <i class="fa-solid fa-volume-high"></i>
+            </div>
+
+            <div class="setting-content">
+
+                <strong>
+                    เสียง
+                </strong>
+
+                <span>
+                    เสียงภายในแอป
+                </span>
+
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="soundToggle">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROGRESS -->
+
+    <section class="settings-section">
+
+        <h2>
+            ความคืบหน้า
+        </h2>
+
+
+        <button
+            class="setting-item"
+            id="leaderboardBtn">
+
+            <div class="setting-icon gold">
+                🏆
+            </div>
+
+            <div class="setting-content">
+
+                <strong>
+                    Leaderboard
+                </strong>
+
+                <span>
+                    ดูอันดับของคุณและเพื่อน
+                </span>
+
+            </div>
+
+            <i class="fa-solid fa-chevron-right arrow"></i>
+
+        </button>
+
+
+        <button
+            class="setting-item"
+            id="historyBtn">
+
+            <div class="setting-icon red">
+                🔥
+            </div>
+
+            <div class="setting-content">
+
+                <strong>
+                    Streak History
+                </strong>
+
+                <span>
+                    ดูประวัติการยืดของคุณ
+                </span>
+
+            </div>
+
+            <i class="fa-solid fa-chevron-right arrow"></i>
+
+        </button>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="settings-section">
+
+        <h2>
+            เกี่ยวกับ
+        </h2>
+
+
+        <button
+            class="setting-item"
+            id="aboutBtn">
+
+            <div class="setting-icon gray">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
+
+            <div class="setting-content">
+
+                <strong>
+                    เกี่ยวกับ Stretchman
+                </strong>
+
+                <span>
+                    ข้อมูลเกี่ยวกับแอป
+                </span>
+
+            </div>
+
+            <i class="fa-solid fa-chevron-right arrow"></i>
+
+        </button>
+
+    </section>
+
+
+    <!-- RESET -->
+
+    <section class="danger-section">
+
+        <button
+            id="resetDataBtn"
+            class="reset-button">
+
+            <i class="fa-solid fa-trash"></i>
+
+            รีเซ็ตข้อมูลทั้งหมด
+
+        </button>
+
+    </section>
+
+
+    <!-- VERSION -->
+
+    <div class="app-version">
+
+        Stretchman
+
+        <br>
+
+        Version 1.0.0
+
+    </div>
+
+
+    <!-- BOTTOM NAV -->
+
+    <nav class="bottom-nav">
+
+        <a
+            href="home.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                Home
+            </span>
+
+        </a>
+
+
+        <a
+            href="quest.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <span>
+                Quest
+            </span>
+
+        </a>
+
+
+        <a
+            href="alarm.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>
+                Alarm
+            </span>
+
+        </a>
+
+
+        <a
+            href="shop.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span>
+                Shop
+            </span>
+
+        </a>
+
+
+        <a
+            href="settings.html"
+            class="nav-item active">
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>
+                Settings
+            </span>
+
+        </a>
+
+    </nav>
+
+</main>
+
+
+<script src="js/app.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/settings.js"></script>
+</body>
+
+</html>

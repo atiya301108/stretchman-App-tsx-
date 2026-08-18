@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Stretchman - Complete</title>
+
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="css/main.css">
+
+
+    <!-- Complete CSS -->
+    <link
+        rel="stylesheet"
+        href="css/complete.css">
+
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<main class="complete-page">
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="complete-header">
+
+        <div class="success-icon">
+
+            <i class="fa-solid fa-check"></i>
+
+        </div>
+
+
+        <h1>
+            เยี่ยมมาก! 🎉
+        </h1>
+
+
+        <p>
+            คุณทำท่ายืดเสร็จแล้ว
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         EXERCISE
+    ========================== -->
+
+    <section class="complete-exercise">
+
+        <div class="exercise-icon">
+
+            <i class="fa-solid fa-person-running"></i>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                ท่าที่ทำ
+            </span>
+
+
+            <strong id="exerciseName">
+                ท่ายืดกล้ามเนื้อ
+            </strong>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         REWARD
+    ========================== -->
+
+    <section class="reward-section">
+
+        <h2>
+            รางวัลที่ได้รับ
+        </h2>
+
+
+        <div class="reward-grid">
+
+
+            <!-- XP -->
+
+            <div class="reward-card xp-card">
+
+                <div class="reward-icon">
+
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+
+                <span>
+                    XP
+                </span>
+
+
+                <strong id="xpReward">
+                    +0
+                </strong>
+
+            </div>
+
+
+
+            <!-- COINS -->
+
+            <div class="reward-card coin-card">
+
+                <div class="reward-icon">
+
+                    <i class="fa-solid fa-coins"></i>
+
+                </div>
+
+
+                <span>
+                    Coins
+                </span>
+
+
+                <strong id="coinReward">
+                    +0
+                </strong>
+
+            </div>
+
+
+
+            <!-- STREAK -->
+
+            <div class="reward-card streak-card">
+
+                <div class="reward-icon">
+
+                    <i class="fa-solid fa-fire"></i>
+
+                </div>
+
+
+                <span>
+                    Streak
+                </span>
+
+
+                <strong>
+
+                    <span id="streakValue">
+                        0
+                    </span>
+
+                    วัน
+
+                </strong>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TOTAL
+    ========================== -->
+
+    <section class="total-section">
+
+
+        <div class="total-item">
+
+            <span>
+                XP ทั้งหมด
+            </span>
+
+
+            <strong id="totalXP">
+                0 XP
+            </strong>
+
+        </div>
+
+
+
+        <div class="total-item">
+
+            <span>
+                Coins ทั้งหมด
+            </span>
+
+
+            <strong id="totalCoins">
+                0
+            </strong>
+
+        </div>
+
+
+
+        <div class="total-item">
+
+            <span>
+                Level
+            </span>
+
+
+            <strong id="levelValue">
+                Lv.1
+            </strong>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         STREAK MESSAGE
+    ========================== -->
+
+    <section class="streak-message">
+
+        <div class="streak-message-icon">
+
+            🔥
+
+        </div>
+
+
+        <div>
+
+            <strong id="streakTitle">
+                รักษา Streak ต่อไป!
+            </strong>
+
+
+            <p id="streakText">
+                กลับมายืดกล้ามเนื้อในวันพรุ่งนี้
+                เพื่อเพิ่ม Streak
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         BUTTONS
+    ========================== -->
+
+    <section class="complete-actions">
+
+
+        <button
+            class="primary-button"
+            id="homeBtn">
+
+            <i class="fa-solid fa-house"></i>
+
+            กลับหน้าหลัก
+
+        </button>
+
+
+        <button
+            class="secondary-button"
+            id="exerciseBtn">
+
+            <i class="fa-solid fa-person-running"></i>
+
+            ยืดอีกครั้ง
+
+        </button>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         BOTTOM NAV
+    ========================== -->
+
+    <nav class="bottom-nav">
+
+
+        <a
+            href="home.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>
+                Home
+            </span>
+
+        </a>
+
+
+        <a
+            href="quest.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <span>
+                Quest
+            </span>
+
+        </a>
+
+
+        <a
+            href="alarm.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>
+                Alarm
+            </span>
+
+        </a>
+
+
+        <a
+            href="shop.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span>
+                Shop
+            </span>
+
+        </a>
+
+
+        <a
+            href="settings.html"
+            class="nav-item">
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>
+                Settings
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+</main>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script src="js/reward.js"></script>
+
+<script src="js/complete.js"></script>
+
+<script src="js/theme.js"></script>
+</body>
+
+</html>

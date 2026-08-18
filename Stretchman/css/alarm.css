@@ -1,0 +1,597 @@
+/* =========================================
+   ALARM PAGE
+========================================= */
+
+.alarm-page {
+
+    min-height: 100vh;
+
+    padding:
+        25px
+        20px
+        110px;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.alarm-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+.alarm-header h1 {
+
+    margin: 0;
+
+    font-size: 28px;
+
+}
+
+.alarm-header p {
+
+    margin: 5px 0 0;
+
+    opacity: 0.65;
+
+    font-size: 14px;
+
+}
+
+.alarm-header-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #3f7cff;
+
+    color: white;
+
+    font-size: 22px;
+
+}
+
+
+/* =========================================
+   ADD ALARM
+========================================= */
+
+.add-alarm-card {
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.08);
+
+    margin-bottom: 25px;
+
+}
+
+.card-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+.title-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 14px;
+
+    background: #eaf1ff;
+
+    color: #3f7cff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+
+}
+
+.card-title h2 {
+
+    margin: 0;
+
+    font-size: 18px;
+
+}
+
+.card-title p {
+
+    margin: 3px 0 0;
+
+    font-size: 12px;
+
+    opacity: 0.6;
+
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+
+    margin-bottom: 17px;
+
+}
+
+.form-group label {
+
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    margin-bottom: 7px;
+
+}
+
+.form-group input[type="time"],
+.form-group input[type="text"] {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: none;
+
+    outline: none;
+
+    background: #f2f5fb;
+
+    border-radius: 12px;
+
+    padding: 13px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   DAY SELECTOR
+========================================= */
+
+.day-selector {
+
+    display: flex;
+
+    gap: 7px;
+
+}
+
+.day-btn {
+
+    width: 39px;
+
+    height: 39px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #edf1f7;
+
+    color: #555;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-weight: 500;
+
+    transition: 0.2s;
+
+}
+
+.day-btn:hover {
+
+    transform: scale(1.05);
+
+}
+
+.day-btn.selected {
+
+    background: #3f7cff;
+
+    color: white;
+
+}
+
+
+/* =========================================
+   ADD BUTTON
+========================================= */
+
+.add-button {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 13px;
+
+    padding: 14px;
+
+    background: #3f7cff;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+.add-button:hover {
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================================
+   LIST
+========================================= */
+
+.alarm-list-section {
+
+    margin-top: 10px;
+
+}
+
+.section-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+
+}
+
+.section-title h2 {
+
+    margin: 0;
+
+    font-size: 18px;
+
+}
+
+.section-title p {
+
+    margin: 4px 0 0;
+
+    font-size: 12px;
+
+    opacity: 0.6;
+
+}
+
+#alarmCount {
+
+    font-size: 12px;
+
+    opacity: 0.6;
+
+}
+
+
+/* =========================================
+   ALARM CARD
+========================================= */
+
+.alarm-card {
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 17px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,0,0,0.06);
+
+}
+
+.alarm-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    background: #eaf1ff;
+
+    color: #3f7cff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 20px;
+
+}
+
+.alarm-info {
+
+    flex: 1;
+
+}
+
+.alarm-time {
+
+    font-size: 25px;
+
+    font-weight: 600;
+
+}
+
+.alarm-label {
+
+    font-size: 13px;
+
+    margin-top: 2px;
+
+}
+
+.alarm-days {
+
+    font-size: 11px;
+
+    opacity: 0.55;
+
+    margin-top: 4px;
+
+}
+
+
+/* =========================================
+   DELETE BUTTON
+========================================= */
+
+.delete-alarm {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #fff0f0;
+
+    color: #e74c3c;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   SWITCH
+========================================= */
+
+.alarm-switch {
+
+    position: relative;
+
+    width: 46px;
+
+    height: 25px;
+
+}
+
+.alarm-switch input {
+
+    display: none;
+
+}
+
+.alarm-slider {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #cbd2df;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+}
+
+.alarm-slider::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 19px;
+
+    height: 19px;
+
+    left: 3px;
+
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.25s;
+
+}
+
+.alarm-switch input:checked + .alarm-slider {
+
+    background: #3f7cff;
+
+}
+
+.alarm-switch input:checked + .alarm-slider::before {
+
+    transform: translateX(21px);
+
+}
+
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.empty-alarm {
+
+    text-align: center;
+
+    padding: 45px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+    opacity: 0.6;
+
+}
+
+.empty-alarm i {
+
+    font-size: 45px;
+
+    margin-bottom: 8px;
+
+}
+
+.empty-alarm strong {
+
+    font-size: 15px;
+
+}
+
+.empty-alarm span {
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark-mode .add-alarm-card,
+body.dark-mode .alarm-card {
+
+    background: #1d2635;
+
+    color: #ffffff;
+
+}
+
+body.dark-mode .form-group input {
+
+    background: #283447;
+
+    color: white;
+
+}
+
+body.dark-mode .day-btn {
+
+    background: #283447;
+
+    color: white;
+
+}
+
+body.dark-mode .day-btn.selected {
+
+    background: #3f7cff;
+
+}
+
+body.dark-mode .title-icon {
+
+    background: #24385e;
+
+}
+
+body.dark-mode .alarm-icon {
+
+    background: #24385e;
+
+}
+
+body.dark-mode .delete-alarm {
+
+    background: #42282b;
+
+}

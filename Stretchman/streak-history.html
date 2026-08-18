@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Stretchman - Streak History</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/streak-history.css">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+<main class="history-page">
+
+
+    <!-- HEADER -->
+
+    <header class="history-header">
+
+        <button
+            id="backBtn"
+            class="back-button">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </button>
+
+
+        <div>
+
+            <h1>Streak History</h1>
+
+            <p>ประวัติการยืดกล้ามเนื้อ</p>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- CURRENT STREAK -->
+
+    <section class="current-streak-card">
+
+        <div class="fire-icon">
+
+            <i class="fa-solid fa-fire"></i>
+
+        </div>
+
+
+        <div class="streak-info">
+
+            <span>Streak ปัจจุบัน</span>
+
+            <strong id="currentStreak">
+                0 วัน
+            </strong>
+
+        </div>
+
+
+        <div class="best-streak">
+
+            <span>ดีที่สุด</span>
+
+            <strong id="bestStreak">
+                0 วัน
+            </strong>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- CALENDAR -->
+
+    <section class="calendar-section">
+
+        <div class="calendar-title">
+
+            <button id="prevMonth">
+
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </button>
+
+
+            <h2 id="monthTitle">
+                -
+            </h2>
+
+
+            <button id="nextMonth">
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="weekdays">
+
+            <span>จ</span>
+            <span>อ</span>
+            <span>พ</span>
+            <span>พฤ</span>
+            <span>ศ</span>
+            <span>ส</span>
+            <span>อา</span>
+
+        </div>
+
+
+        <div
+            class="calendar"
+            id="calendar">
+
+        </div>
+
+
+        <div class="calendar-legend">
+
+            <div>
+
+                <span class="legend-dot completed"></span>
+
+                วันที่ยืดแล้ว
+
+            </div>
+
+
+            <div>
+
+                <span class="legend-dot today"></span>
+
+                วันนี้
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- HISTORY -->
+
+    <section class="history-section">
+
+        <div class="section-title">
+
+            <h2>ประวัติการยืด</h2>
+
+            <span id="totalSessions">
+                0 ครั้ง
+            </span>
+
+        </div>
+
+
+        <div
+            id="historyList"
+            class="history-list">
+
+        </div>
+
+
+        <div
+            id="emptyHistory"
+            class="empty-history">
+
+            <i class="fa-regular fa-calendar-xmark"></i>
+
+            <h3>ยังไม่มีประวัติ</h3>
+
+            <p>
+                เริ่มยืดกล้ามเนื้อวันนี้
+                เพื่อสร้าง Streak ของคุณ
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BOTTOM NAV -->
+
+    <nav class="bottom-nav">
+
+        <a href="home.html" class="nav-item">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Home</span>
+
+        </a>
+
+
+        <a href="quest.html" class="nav-item">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <span>Quest</span>
+
+        </a>
+
+
+        <a href="alarm.html" class="nav-item">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>Alarm</span>
+
+        </a>
+
+
+        <a href="shop.html" class="nav-item">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span>Shop</span>
+
+        </a>
+
+
+        <a href="settings.html" class="nav-item">
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>Settings</span>
+
+        </a>
+
+    </nav>
+
+
+</main>
+
+
+<script src="js/reward.js"></script>
+<script src="js/streak-history.js"></script>
+<script src="js/theme.js"></script>
+</body>
+
+</html>

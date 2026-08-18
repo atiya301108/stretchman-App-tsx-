@@ -42,17 +42,13 @@ const aiStatus =
     document.getElementById("aiStatus");
 
 const trackingMessage =
-    document.getElementById(
-        "trackingMessage"
-    );
+    document.getElementById("trackingMessage");
 
 const timerElement =
     document.getElementById("timer");
 
 const exampleImage =
-    document.getElementById(
-        "exampleImage"
-    );
+    document.getElementById("exampleImage");
 
 const examplePlaceholder =
     document.getElementById(
@@ -60,9 +56,7 @@ const examplePlaceholder =
     );
 
 const exerciseName =
-    document.getElementById(
-        "exerciseName"
-    );
+    document.getElementById("exerciseName");
 
 
 /* =========================
@@ -107,21 +101,6 @@ if (savedImage) {
 }
 
 
-if (savedTime) {
-
-    const match =
-        savedTime.match(/\d+/);
-
-    if (match) {
-
-        totalSeconds =
-            parseInt(match[0]);
-
-    }
-
-}
-
-
 /* =========================
    TIMER
 ========================= */
@@ -134,6 +113,28 @@ let remainingSeconds =
 let timerInterval = null;
 
 let timerRunning = false;
+
+
+/*
+   ถ้ามีเวลาจากหน้า Exercise
+*/
+
+if (savedTime) {
+
+    const match =
+        savedTime.match(/\d+/);
+
+    if (match) {
+
+        totalSeconds =
+            parseInt(match[0]);
+
+        remainingSeconds =
+            totalSeconds;
+
+    }
+
+}
 
 
 /* =========================
@@ -150,6 +151,13 @@ let animationFrame = null;
 
 
 /* =========================
+   PREVENT DOUBLE REWARD
+========================= */
+
+let rewardGiven = false;
+
+
+/* =========================
    MEDIAPIPE
 ========================= */
 
@@ -159,6 +167,7 @@ async function createPoseTracker() {
 
         trackingMessage.textContent =
             "กำลังโหลด AI Motion Tracking...";
+
 
         const vision =
             await FilesetResolver.forVisionTasks(
@@ -170,6 +179,7 @@ async function createPoseTracker() {
             await PoseLandmarker.createFromOptions(
                 vision,
                 {
+
                     baseOptions: {
 
                         modelAssetPath:
@@ -177,20 +187,34 @@ async function createPoseTracker() {
 
                     },
 
-                    runningMode: "VIDEO",
 
-                    numPoses: 1,
+                    runningMode:
+                        "VIDEO",
 
-                    minPoseDetectionConfidence: 0.5,
 
-                    minPosePresenceConfidence: 0.5,
+                    numPoses:
+                        1,
 
-                    minTrackingConfidence: 0.5
+
+                    minPoseDetectionConfidence:
+                        0.5,
+
+
+                    minPosePresenceConfidence:
+                        0.5,
+
+
+                    minTrackingConfidence:
+                        0.5
+
                 }
             );
 
 
-        aiStatus.classList.add("ready");
+        aiStatus.classList.add(
+            "ready"
+        );
+
 
         trackingMessage.textContent =
             "AI พร้อมแล้ว กดเปิดกล้อง";
@@ -198,12 +222,16 @@ async function createPoseTracker() {
 
         return true;
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         console.error(error);
 
+
         trackingMessage.textContent =
             "โหลด AI ไม่สำเร็จ";
+
 
         return false;
 
@@ -213,7 +241,7 @@ async function createPoseTracker() {
 
 
 /* =========================
-   CAMERA
+   CAMERA START
 ========================= */
 
 async function startCamera() {
@@ -231,25 +259,28 @@ async function startCamera() {
 
 
         stream =
-            await navigator.mediaDevices.getUserMedia({
+            await navigator
+                .mediaDevices
+                .getUserMedia({
 
-                video: {
+                    video: {
 
-                    facingMode: "user",
+                        facingMode:
+                            "user",
 
-                    width: {
-                        ideal: 720
+                        width: {
+                            ideal: 720
+                        },
+
+                        height: {
+                            ideal: 1280
+                        }
+
                     },
 
-                    height: {
-                        ideal: 1280
-                    }
+                    audio: false
 
-                },
-
-                audio: false
-
-            });
+                });
 
 
         video.srcObject =
@@ -259,11 +290,13 @@ async function startCamera() {
         await video.play();
 
 
-        cameraRunning = true;
+        cameraRunning =
+            true;
 
 
         startIcon.className =
             "fa-solid fa-pause";
+
 
         startText.textContent =
             "หยุด";
@@ -278,13 +311,16 @@ async function startCamera() {
 
         detectPose();
 
+    }
 
-    } catch (error) {
+    catch (error) {
 
         console.error(error);
 
+
         trackingMessage.textContent =
             "ไม่สามารถเปิดกล้องได้";
+
 
         aiStatus.classList.remove(
             "ready"
@@ -296,12 +332,13 @@ async function startCamera() {
 
 
 /* =========================
-   STOP CAMERA
+   CAMERA STOP
 ========================= */
 
 function stopCamera() {
 
-    cameraRunning = false;
+    cameraRunning =
+        false;
 
 
     if (animationFrame) {
@@ -310,6 +347,9 @@ function stopCamera() {
             animationFrame
         );
 
+        animationFrame =
+            null;
+
     }
 
 
@@ -317,16 +357,20 @@ function stopCamera() {
 
         stream
             .getTracks()
-            .forEach(track =>
-                track.stop()
+            .forEach(
+                track =>
+                    track.stop()
             );
 
-        stream = null;
+
+        stream =
+            null;
 
     }
 
 
-    video.srcObject = null;
+    video.srcObject =
+        null;
 
 
     ctx.clearRect(
@@ -343,12 +387,9 @@ function stopCamera() {
     startIcon.className =
         "fa-solid fa-camera";
 
+
     startText.textContent =
         "เปิดกล้อง";
-
-
-    trackingMessage.textContent =
-        "กล้องหยุดแล้ว";
 
 }
 
@@ -363,6 +404,7 @@ function resizeCanvas() {
         video.videoWidth ||
         video.clientWidth;
 
+
     canvas.height =
         video.videoHeight ||
         video.clientHeight;
@@ -376,7 +418,8 @@ function resizeCanvas() {
 
 function detectPose() {
 
-    if (!cameraRunning) return;
+    if (!cameraRunning)
+        return;
 
 
     if (
@@ -400,10 +443,11 @@ function detectPose() {
     try {
 
         const result =
-            poseLandmarker.detectForVideo(
-                video,
-                performance.now()
-            );
+            poseLandmarker
+                .detectForVideo(
+                    video,
+                    performance.now()
+                );
 
 
         ctx.clearRect(
@@ -432,19 +476,25 @@ function detectPose() {
                 landmarks
             );
 
-        } else {
+        }
+
+        else {
 
             trackingMessage.textContent =
                 "ไม่พบร่างกาย — ขยับเข้ากล้องอีกนิด";
 
+
             trackingMessage.className =
                 "tracking-message warning";
+
 
             stopTimer();
 
         }
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         console.error(error);
 
@@ -460,7 +510,7 @@ function detectPose() {
 
 
 /* =========================
-   DRAW SKELETON
+   SKELETON CONNECTIONS
 ========================= */
 
 const connections = [
@@ -487,6 +537,10 @@ const connections = [
 ];
 
 
+/* =========================
+   DRAW SKELETON
+========================= */
+
 function drawPose(landmarks) {
 
     const width =
@@ -496,9 +550,13 @@ function drawPose(landmarks) {
         canvas.height;
 
 
-    ctx.lineWidth = 5;
+    ctx.lineWidth =
+        5;
 
-    ctx.lineCap = "round";
+
+    ctx.lineCap =
+        "round";
+
 
     ctx.strokeStyle =
         "#43a5ff";
@@ -514,26 +572,31 @@ function drawPose(landmarks) {
                 landmarks[end];
 
 
-            if (!a || !b) return;
+            if (!a || !b)
+                return;
 
 
             if (
                 a.visibility < 0.5 ||
                 b.visibility < 0.5
-            ) return;
+            )
+                return;
 
 
             ctx.beginPath();
+
 
             ctx.moveTo(
                 a.x * width,
                 a.y * height
             );
 
+
             ctx.lineTo(
                 b.x * width,
                 b.y * height
             );
+
 
             ctx.stroke();
 
@@ -546,10 +609,12 @@ function drawPose(landmarks) {
 
             if (
                 point.visibility < 0.5
-            ) return;
+            )
+                return;
 
 
             ctx.beginPath();
+
 
             ctx.arc(
                 point.x * width,
@@ -562,6 +627,7 @@ function drawPose(landmarks) {
 
             ctx.fillStyle =
                 "#ffffff";
+
 
             ctx.fill();
 
@@ -576,15 +642,6 @@ function drawPose(landmarks) {
 ========================= */
 
 function checkPose(landmarks) {
-
-    /*
-        ตัวอย่างระบบตรวจเบื้องต้น
-
-        ตรวจว่าไหล่ซ้าย/ขวา
-        และสะโพกซ้าย/ขวา
-        ถูกตรวจพบหรือไม่
-    */
-
 
     const leftShoulder =
         landmarks[11];
@@ -609,6 +666,7 @@ function checkPose(landmarks) {
         trackingMessage.textContent =
             "กำลังหาตำแหน่งร่างกาย...";
 
+
         stopTimer();
 
         return;
@@ -628,8 +686,10 @@ function checkPose(landmarks) {
         trackingMessage.textContent =
             "ขยับให้เห็นตัวชัดขึ้น";
 
+
         trackingMessage.className =
             "tracking-message warning";
+
 
         stopTimer();
 
@@ -638,23 +698,13 @@ function checkPose(landmarks) {
     }
 
 
-    /*
-       ตอนนี้ถือว่า
-       AI ตรวจพบร่างกายแล้ว
-    */
-
-
     trackingMessage.textContent =
         "✓ ตรวจพบร่างกายแล้ว";
+
 
     trackingMessage.className =
         "tracking-message good";
 
-
-    /*
-       เริ่ม Timer
-       เมื่อระบบตรวจพบร่างกาย
-    */
 
     if (!timerRunning) {
 
@@ -671,29 +721,45 @@ function checkPose(landmarks) {
 
 function startTimer() {
 
-    if (timerRunning) return;
+    if (timerRunning)
+        return;
 
 
-    timerRunning = true;
+    /*
+       ถ้าเวลาหมดแล้ว
+       ไม่เริ่มใหม่
+    */
+
+    if (
+        remainingSeconds <= 0
+    )
+        return;
+
+
+    timerRunning =
+        true;
 
 
     timerInterval =
-        setInterval(() => {
+        setInterval(
+            () => {
 
-            remainingSeconds--;
+                remainingSeconds--;
 
-            updateTimer();
+                updateTimer();
 
 
-            if (
-                remainingSeconds <= 0
-            ) {
+                if (
+                    remainingSeconds <= 0
+                ) {
 
-                finishTimer();
+                    finishTimer();
 
-            }
+                }
 
-        }, 1000);
+            },
+            1000
+        );
 
 }
 
@@ -704,17 +770,21 @@ function startTimer() {
 
 function stopTimer() {
 
-    if (!timerRunning) return;
+    if (!timerRunning)
+        return;
 
 
-    timerRunning = false;
+    timerRunning =
+        false;
 
 
     clearInterval(
         timerInterval
     );
 
-    timerInterval = null;
+
+    timerInterval =
+        null;
 
 }
 
@@ -724,6 +794,15 @@ function stopTimer() {
 ========================= */
 
 function resetTimer() {
+
+    /*
+       ถ้าให้รางวัลไปแล้ว
+       ไม่ควร Reset เพื่อรับรางวัลซ้ำ
+    */
+
+    if (rewardGiven)
+        return;
+
 
     stopTimer();
 
@@ -758,7 +837,7 @@ function updateTimer() {
 
 
 /* =========================
-   TIMER FINISH
+   FINISH TIMER
 ========================= */
 
 function finishTimer() {
@@ -766,7 +845,9 @@ function finishTimer() {
     stopTimer();
 
 
-    remainingSeconds = 0;
+    remainingSeconds =
+        0;
+
 
     updateTimer();
 
@@ -784,11 +865,64 @@ function finishTimer() {
         "true"
     );
 
+
+    /*
+       ให้รางวัล
+    */
+
+    exerciseComplete();
+
 }
 
 
 /* =========================
-   BUTTONS
+   EXERCISE COMPLETE
+========================= */
+
+function exerciseComplete() {
+
+    /*
+       ป้องกันการได้รับรางวัลซ้ำ
+    */
+
+    if (rewardGiven)
+        return;
+
+
+    rewardGiven =
+        true;
+
+
+    /*
+       XP = 15
+       Coins = 5
+    */
+
+    completeExercise(
+        15,
+        5
+    );
+
+
+    /*
+       หยุดกล้อง
+    */
+
+    stopCamera();
+
+
+    /*
+       ไปหน้าสรุปรางวัล
+    */
+
+    window.location.href =
+        "complete.html";
+
+}
+
+
+/* =========================
+   START BUTTON
 ========================= */
 
 startBtn.addEventListener(
@@ -799,7 +933,9 @@ startBtn.addEventListener(
 
             stopCamera();
 
-        } else {
+        }
+
+        else {
 
             startCamera();
 
@@ -809,11 +945,23 @@ startBtn.addEventListener(
 );
 
 
+/* =========================
+   RESET BUTTON
+========================= */
+
 resetBtn.addEventListener(
     "click",
-    resetTimer
+    () => {
+
+        resetTimer();
+
+    }
 );
 
+
+/* =========================
+   SKIP BUTTON
+========================= */
 
 skipBtn.addEventListener(
     "click",
@@ -821,41 +969,55 @@ skipBtn.addEventListener(
 
         stopCamera();
 
+
         window.location.href =
             "exercise.html";
 
     }
 );
 
+
+/* =========================
+   COMPLETE BUTTON
+========================= */
 
 completeBtn.addEventListener(
     "click",
     () => {
 
-        localStorage.setItem(
-            "exerciseCompleted",
-            "true"
-        );
-
+        /* =========================
+           STOP CAMERA
+        ========================= */
 
         stopCamera();
 
 
-        window.location.href =
-            "exercise.html";
+        /* =========================
+           GIVE REWARD
+        ========================= */
 
-    }
-);
+        const rewarded =
+            completeExercise(
+                15,
+                5
+            );
 
 
-backBtn.addEventListener(
-    "click",
-    () => {
+        /* =========================
+           GO COMPLETE PAGE
+        ========================= */
 
-        stopCamera();
+        if (rewarded) {
 
-        window.location.href =
-            "exercise.html";
+            window.location.href =
+                "complete.html";
+
+        } else {
+
+            window.location.href =
+                "complete.html";
+
+        }
 
     }
 );
@@ -867,9 +1029,13 @@ backBtn.addEventListener(
 
 updateTimer();
 
+
 trackingMessage.textContent =
     "กดเปิดกล้องเพื่อเริ่ม";
 
 
-// โหลด AI ล่วงหน้า
+/*
+   โหลด AI ล่วงหน้า
+*/
+
 createPoseTracker();

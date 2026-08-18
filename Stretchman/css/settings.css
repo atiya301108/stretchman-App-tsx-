@@ -1,0 +1,372 @@
+.settings-page {
+    min-height: 100vh;
+    padding: 20px;
+    padding-bottom: 110px;
+}
+
+
+/* HEADER */
+
+.settings-header {
+    margin-bottom: 20px;
+}
+
+.settings-header h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.settings-header p {
+    margin: 5px 0 0;
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* PROFILE */
+
+.settings-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 18px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.07);
+
+    margin-bottom: 25px;
+}
+
+
+.profile-avatar {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    background: #eaf5ff;
+}
+
+
+.profile-info {
+    flex: 1;
+}
+
+
+.profile-info strong {
+    display: block;
+    font-size: 17px;
+}
+
+
+.profile-info > span {
+    display: block;
+
+    color: #777;
+
+    font-size: 12px;
+
+    margin-top: 2px;
+}
+
+
+.profile-xp {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 7px;
+}
+
+
+.xp-bar {
+    width: 100px;
+    height: 6px;
+
+    background: #e8edf3;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.xp-progress {
+    width: 0%;
+    height: 100%;
+
+    border-radius: 10px;
+
+    background: #43a5ff;
+}
+
+
+.profile-xp small {
+    color: #777;
+    font-size: 10px;
+}
+
+
+.edit-profile {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #f2f7ff;
+
+    cursor: pointer;
+}
+
+
+/* SECTION */
+
+.settings-section {
+    margin-bottom: 24px;
+}
+
+
+.settings-section h2 {
+    font-size: 15px;
+
+    margin: 0 0 10px 5px;
+}
+
+
+/* SETTING ITEM */
+
+.setting-item {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 14px;
+
+    margin-bottom: 8px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: white;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.05);
+}
+
+
+.setting-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+
+.setting-icon.blue {
+    background: #e6f3ff;
+}
+
+.setting-icon.orange {
+    background: #fff0dc;
+}
+
+.setting-icon.red {
+    background: #ffe8e8;
+}
+
+.setting-icon.purple {
+    background: #eee8ff;
+}
+
+.setting-icon.green {
+    background: #e4f8ed;
+}
+
+.setting-icon.gold {
+    background: #fff4d6;
+}
+
+.setting-icon.gray {
+    background: #eeeeee;
+}
+
+
+.setting-content {
+    flex: 1;
+}
+
+
+.setting-content strong {
+    display: block;
+
+    font-size: 14px;
+
+    color: #222;
+}
+
+
+.setting-content span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+.arrow {
+    color: #aaa;
+    font-size: 13px;
+}
+
+
+/* SWITCH */
+
+.switch {
+    position: relative;
+
+    width: 45px;
+    height: 25px;
+
+    flex-shrink: 0;
+}
+
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+.slider {
+    position: absolute;
+
+    inset: 0;
+
+    background: #d7dce2;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.slider:before {
+    content: "";
+
+    position: absolute;
+
+    width: 19px;
+    height: 19px;
+
+    left: 3px;
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.2s;
+}
+
+
+.switch input:checked + .slider {
+    background: #43a5ff;
+}
+
+
+.switch input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+
+/* RESET */
+
+.danger-section {
+    margin-top: 15px;
+}
+
+
+.reset-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: #fff0f0;
+
+    color: #e74c3c;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.reset-button i {
+    margin-right: 7px;
+}
+
+
+/* VERSION */
+
+.app-version {
+    text-align: center;
+
+    color: #aaa;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    margin-top: 25px;
+}
+
+
+@media (max-width: 500px) {
+
+    .settings-page {
+        padding: 15px;
+        padding-bottom: 110px;
+    }
+
+}

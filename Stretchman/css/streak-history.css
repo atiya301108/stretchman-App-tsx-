@@ -1,0 +1,546 @@
+.history-page {
+
+    min-height: 100vh;
+
+    padding:
+        25px
+        25px
+        110px;
+
+    background: #eef9ff;
+
+}
+
+
+/* =========================
+HEADER
+========================= */
+
+.history-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.history-header h1 {
+
+    margin: 0;
+
+    font-size: 25px;
+
+    color: #17324d;
+
+}
+
+
+.history-header p {
+
+    margin: 3px 0 0;
+
+    color: #7890a5;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================
+CURRENT STREAK
+========================= */
+
+.current-streak-card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(60, 140, 190, .10);
+
+}
+
+
+.fire-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #fff2d8;
+
+    color: #ff9f1c;
+
+    font-size: 27px;
+
+}
+
+
+.streak-info {
+
+    flex: 1;
+
+}
+
+
+.streak-info span,
+.best-streak span {
+
+    display: block;
+
+    font-size: 12px;
+
+    color: #8297a9;
+
+}
+
+
+.streak-info strong {
+
+    font-size: 24px;
+
+    color: #ff8b00;
+
+}
+
+
+.best-streak {
+
+    text-align: right;
+
+}
+
+
+.best-streak strong {
+
+    display: block;
+
+    font-size: 20px;
+
+    color: #263d52;
+
+}
+
+
+/* =========================
+CALENDAR
+========================= */
+
+.calendar-section {
+
+    background: white;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+}
+
+
+.calendar-title {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.calendar-title h2 {
+
+    margin: 0;
+
+    font-size: 18px;
+
+    color: #263d52;
+
+}
+
+
+.calendar-title button {
+
+    border: none;
+
+    background: #edf8ff;
+
+    color: #329ce8;
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+}
+
+
+.weekdays,
+.calendar {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 8px;
+
+}
+
+
+.weekdays {
+
+    margin-top: 20px;
+
+}
+
+
+.weekdays span {
+
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #91a3b2;
+
+}
+
+
+.calendar {
+
+    margin-top: 10px;
+
+}
+
+
+.calendar-day {
+
+    aspect-ratio: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    color: #617487;
+
+}
+
+
+.calendar-day.empty {
+
+    visibility: hidden;
+
+}
+
+
+.calendar-day.completed {
+
+    background: #dff3ff;
+
+    color: #2499df;
+
+    font-weight: 600;
+
+}
+
+
+.calendar-day.today {
+
+    outline: 2px solid #43a5ff;
+
+}
+
+
+.calendar-day.completed.today {
+
+    background: #43a5ff;
+
+    color: white;
+
+}
+
+
+/* =========================
+LEGEND
+========================= */
+
+.calendar-legend {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-top: 18px;
+
+    font-size: 11px;
+
+    color: #8297a9;
+
+}
+
+
+.calendar-legend div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.legend-dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+}
+
+
+.legend-dot.completed {
+
+    background: #dff3ff;
+
+}
+
+
+.legend-dot.today {
+
+    background: #43a5ff;
+
+}
+
+
+/* =========================
+HISTORY
+========================= */
+
+.history-section {
+
+    margin-top: 25px;
+
+}
+
+
+.section-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+
+}
+
+
+.section-title h2 {
+
+    margin: 0;
+
+    color: #263d52;
+
+    font-size: 19px;
+
+}
+
+
+.section-title span {
+
+    font-size: 12px;
+
+    color: #7e94a7;
+
+}
+
+
+.history-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+
+.history-item {
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+}
+
+
+.history-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #e8f7ff;
+
+    color: #329ce8;
+
+}
+
+
+.history-content {
+
+    flex: 1;
+
+}
+
+
+.history-content strong {
+
+    display: block;
+
+    color: #31495e;
+
+    font-size: 14px;
+
+}
+
+
+.history-content span {
+
+    font-size: 11px;
+
+    color: #8b9cab;
+
+}
+
+
+.history-xp {
+
+    color: #ff9d19;
+
+    font-weight: 600;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================
+EMPTY
+========================= */
+
+.empty-history {
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    color: #8b9cab;
+
+}
+
+
+.empty-history i {
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.empty-history h3 {
+
+    margin: 5px;
+
+    color: #526b7f;
+
+}
+
+
+.empty-history p {
+
+    font-size: 12px;
+
+}
+
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .history-page {
+
+        padding-left: 15px;
+        padding-right: 15px;
+
+    }
+
+    .current-streak-card {
+
+        padding: 15px;
+
+    }
+
+}
