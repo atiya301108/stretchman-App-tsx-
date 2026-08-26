@@ -182,6 +182,7 @@ spinButton.addEventListener("click", async function () {
 
         jackpotSound.play().catch(() => {});
 
+        startJackpotEffect();
 
     } else {
 
@@ -196,3 +197,79 @@ spinButton.addEventListener("click", async function () {
     spinButton.disabled = false;
 
 });
+
+// ========================================
+// JACKPOT VISUAL EFFECT
+// ========================================
+
+function startJackpotEffect() {
+
+    // ------------------------------
+    // ไฟสีเขียวรอบหน้าจอ
+    // ------------------------------
+
+    const effect = document.getElementById("jackpotEffect");
+
+    effect.classList.remove("active");
+
+    // บังคับให้ animation เริ่มใหม่
+    void effect.offsetWidth;
+
+    effect.classList.add("active");
+
+
+    // ------------------------------
+    // สร้างฝนเหรียญ
+    // ------------------------------
+
+    const coinAmount = 750;
+
+
+    for (let i = 0; i < coinAmount; i++) {
+
+        setTimeout(() => {
+
+            const coin = document.createElement("div");
+
+            coin.classList.add("coin");
+
+
+            // ตำแหน่งสุ่มบนหน้าจอ
+            coin.style.left =
+                Math.random() * 100 + "vw";
+
+
+            // ขนาดสุ่ม
+            const size =
+                Math.random() * 20 + 25;
+
+            coin.style.width = size + "px";
+            coin.style.height = size + "px";
+
+
+            // ความเร็วตกสุ่ม
+            const duration =
+                Math.random() * 1.5 + 2;
+
+
+            coin.style.animationDuration =
+                duration + "s";
+
+
+            // เพิ่มเหรียญเข้าเว็บ
+            document.body.appendChild(coin);
+
+
+            // ลบเหรียญหลังตกพ้นหน้าจอ
+            setTimeout(() => {
+
+                coin.remove();
+
+            }, duration * 1000 + 500);
+
+
+        }, i * 35);
+
+    }
+
+}

@@ -2,784 +2,431 @@
     box-sizing: border-box;
 }
 
-
 body {
-
     margin: 0;
-
     min-height: 100vh;
-
     background: #123b91;
-
     font-family: 'Poppins', sans-serif;
-
     color: white;
 }
 
-
 .leaderboard-page {
-
     width: min(100%, 430px);
-
     min-height: 100vh;
-
     margin: auto;
-
     padding: 15px 15px 12px;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 12px;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
+/* HEADER */
 .leaderboard-header {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     padding: 3px 5px;
 }
 
-
 .back-button,
 .history-button {
-
     width: 40px;
     height: 40px;
-
     border: none;
-
     background: transparent;
-
     color: #9bbaff;
-
     font-size: 22px;
-
     cursor: pointer;
 }
 
-
 .leaderboard-header > div {
-
     flex: 1;
 }
 
-
 .leaderboard-header h1 {
-
     margin: 0;
-
     font-size: 22px;
-
     font-weight: 600;
 }
 
-
 .leaderboard-header p {
-
     margin: 0;
-
     font-size: 9px;
-
     opacity: .7;
 }
 
-
-/* =========================
-   STREAK
-========================= */
-
+/* STREAK */
 .streak-card {
-
-    background: linear-gradient(
-        135deg,
-        #2475ed,
-        #72aaff
-    );
-
+    background: linear-gradient(135deg, #2475ed, #72aaff);
     border-radius: 22px;
-
     padding: 14px;
-
-    box-shadow:
-        0 8px 20px
-        rgba(0,0,0,.12);
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
 }
 
-
 .streak-top {
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
 }
 
-
 .streak-icon {
-
     width: 48px;
     height: 48px;
-
     border-radius: 16px;
-
     background: white;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     font-size: 27px;
 }
 
-
 .streak-top span {
-
     display: block;
-
     font-size: 9px;
-
     opacity: .85;
 }
 
-
 .streak-top strong {
-
     display: block;
-
     font-size: 20px;
-
     line-height: 22px;
 }
 
-
 .streak-best {
-
     margin-left: auto;
-
     text-align: right;
 }
 
-
 .streak-best small {
-
     display: block;
-
     font-size: 8px;
-
     opacity: .8;
 }
 
-
 .streak-best b {
-
     font-size: 18px;
 }
 
-
 .streak-days {
-
     display: flex;
-
     justify-content: space-between;
-
     margin-top: 14px;
-
     padding-top: 10px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.3);
+    border-top: 1px solid rgba(255,255,255,.3);
 }
 
-
 .day {
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     gap: 5px;
 }
 
-
 .day span {
-
     font-size: 8px;
-
     opacity: .8;
 }
 
-
 .day i {
-
     width: 19px;
     height: 19px;
-
     border-radius: 50%;
-
-    background: rgba(
-        255,
-        255,
-        255,
-        .3
-    );
-
+    background: rgba(255, 255, 255, .3);
     display: block;
 }
-
 
 .day.completed i {
-
     background: #ffb21c;
-
-    box-shadow:
-        0 0 8px
-        rgba(255,178,28,.7);
+    box-shadow: 0 0 8px rgba(255,178,28,.7);
 }
-
 
 .day.today i {
-
-    border:
-        2px solid white;
-}
-
-
-/* =========================
-   PLAYER
-========================= */
-
-.player-card {
-
-    background: white;
-
-    color: #173d91;
-
-    border-radius: 20px;
-
-    padding: 10px 13px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-}
-
-
-.player-avatar {
-
-    width: 43px;
-    height: 43px;
-
-    border-radius: 50%;
-
-    background: #e5eeff;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 24px;
-}
-
-
-.player-info {
-
-    flex: 1;
-}
-
-
-.player-info strong {
-
-    display: block;
-
-    font-size: 13px;
-}
-
-
-.player-info span {
-
-    display: block;
-
-    font-size: 8px;
-
-    color: #777;
-}
-
-
-.player-xp {
-
-    text-align: right;
-}
-
-
-.player-xp strong {
-
-    display: block;
-
-    font-size: 16px;
-}
-
-
-.player-xp span {
-
-    font-size: 7px;
-
-    color: #777;
-}
-
-
-/* =========================
-   LEADERBOARD
-========================= */
-
-.leaderboard-section {
-
-    flex: 1;
-
-    background: white;
-
-    color: #173d91;
-
-    border-radius: 23px;
-
-    padding: 14px 12px;
-
-    overflow: hidden;
-}
-
-
-.section-title {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-}
-
-
-.section-title h2 {
-
-    margin: 0;
-
-    font-size: 15px;
-}
-
-
-.section-title p {
-
-    margin: 1px 0 0;
-
-    font-size: 7px;
-
-    color: #888;
-}
-
-
-.trophy {
-
-    font-size: 25px;
-}
-
-
-/* =========================
-   PODIUM
-========================= */
-
-.podium {
-
-    height: 145px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: flex-end;
-
-    gap: 8px;
-
-    margin-top: 5px;
-}
-
-
-.podium-player {
-
-    width: 31%;
-
-    text-align: center;
-
-    position: relative;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-}
-
-
-.rank-avatar {
-
-    width: 47px;
-    height: 47px;
-
-    border-radius: 50%;
-
-    background: #e9f0ff;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 25px;
-
-    border: 3px solid #d1e0ff;
-}
-
-
-.first .rank-avatar {
-
-    width: 58px;
-    height: 58px;
-
-    border-color: #ffc928;
-
-    background: #fff5c9;
-}
-
-
-.crown {
-
-    position: absolute;
-
-    top: -22px;
-
-    font-size: 20px;
-}
-
-
-.rank {
-
-    margin-top: -4px;
-
-    width: 21px;
-    height: 21px;
-
-    border-radius: 50%;
-
-    background: #5689f8;
-
-    color: white;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 9px;
-
     border: 2px solid white;
 }
 
-
-.first .rank {
-
-    background: #ffc928;
+/* PLAYER */
+.player-card {
+    background: white;
+    color: #173d91;
+    border-radius: 20px;
+    padding: 10px 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-
-.third .rank {
-
-    background: #cd8a50;
+.player-avatar {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background: #e5eeff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
 }
 
+.player-info {
+    flex: 1;
+}
 
-.podium-player strong {
+.player-info strong {
+    display: block;
+    font-size: 13px;
+}
 
+.player-info span {
+    display: block;
     font-size: 8px;
-
-    margin-top: 3px;
-}
-
-
-.podium-player small {
-
-    font-size: 7px;
-
     color: #777;
 }
 
-
-/* =========================
-   LIST
-========================= */
-
-.ranking-list {
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 6px;
-
-    margin-top: 8px;
+.player-xp {
+    text-align: right;
 }
 
-
-.ranking-item {
-
-    min-height: 38px;
-
-    padding: 5px 8px;
-
-    border-radius: 12px;
-
-    background: #f2f6ff;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
+.player-xp strong {
+    display: block;
+    font-size: 16px;
 }
 
-
-.ranking-number {
-
-    width: 18px;
-
-    text-align: center;
-
-    font-size: 9px;
-
-    font-weight: 600;
-
-    color: #7893cc;
+.player-xp span {
+    font-size: 7px;
+    color: #777;
 }
 
-
-.mini-avatar {
-
-    width: 27px;
-    height: 27px;
-
-    border-radius: 50%;
-
+/* LEADERBOARD */
+.leaderboard-section {
+    flex: 1;
     background: white;
+    color: #173d91;
+    border-radius: 23px;
+    padding: 14px 12px;
+    overflow: hidden;
+}
 
+.section-title {
     display: flex;
-
     align-items: center;
+    justify-content: space-between;
+}
 
-    justify-content: center;
-
+.section-title h2 {
+    margin: 0;
     font-size: 15px;
 }
 
+.section-title p {
+    margin: 1px 0 0;
+    font-size: 7px;
+    color: #888;
+}
+
+.trophy {
+    font-size: 25px;
+}
+
+/* PODIUM */
+.podium {
+    height: 145px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.podium-player {
+    width: 31%;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rank-avatar {
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    background: #e9f0ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    border: 3px solid #d1e0ff;
+}
+
+.first .rank-avatar {
+    width: 58px;
+    height: 58px;
+    border-color: #ffc928;
+    background: #fff5c9;
+}
+
+.crown {
+    position: absolute;
+    top: -22px;
+    font-size: 20px;
+}
+
+.rank {
+    margin-top: -4px;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    background: #5689f8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    border: 2px solid white;
+}
+
+.first .rank {
+    background: #ffc928;
+}
+
+.third .rank {
+    background: #cd8a50;
+}
+
+.podium-player strong {
+    font-size: 8px;
+    margin-top: 3px;
+}
+
+.podium-player small {
+    font-size: 7px;
+    color: #777;
+}
+
+/* LIST */
+.ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.ranking-item {
+    min-height: 38px;
+    padding: 5px 8px;
+    border-radius: 12px;
+    background: #f2f6ff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ranking-number {
+    width: 18px;
+    text-align: center;
+    font-size: 9px;
+    font-weight: 600;
+    color: #7893cc;
+}
+
+.mini-avatar {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
 
 .ranking-name {
-
     flex: 1;
-
     font-size: 9px;
-
     font-weight: 500;
 }
 
-
 .ranking-item strong {
-
     font-size: 9px;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-height: 700px) {
-
-    .leaderboard-page {
-
-        gap: 7px;
-
-        padding-top: 8px;
-    }
-
-
-    .streak-card {
-
-        padding: 10px;
-    }
-
-
-    .streak-days {
-
-        margin-top: 8px;
-
-        padding-top: 7px;
-    }
-
-
-    .leaderboard-section {
-
-        padding: 10px;
-    }
-
-
-    .podium {
-
-        height: 125px;
-    }
-
-}
-
-/* =========================================
-   CURRENT USER
-========================================= */
-
+/* CURRENT USER */
 .my-ranking {
-
     margin-top: 15px;
-
     padding: 15px;
-
     border-radius: 18px;
-
-    background: linear-gradient(
-        135deg,
-        #3f7cff,
-        #6b9cff
-    );
-
+    background: linear-gradient(135deg, #3f7cff, #6b9cff);
     color: white;
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
 }
-
 
 .my-ranking-left {
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     min-width: 55px;
-
 }
-
 
 .my-ranking-left span {
-
     font-size: 10px;
-
     opacity: 0.8;
-
 }
-
 
 .my-ranking-left strong {
-
     font-size: 22px;
-
 }
-
 
 .my-ranking-user {
-
     flex: 1;
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
 }
-
 
 .my-ranking-user > div:last-child {
-
     display: flex;
-
     flex-direction: column;
-
 }
-
 
 .my-ranking-user strong {
-
     font-size: 14px;
-
 }
-
 
 .my-ranking-user span {
-
     font-size: 10px;
-
     opacity: 0.8;
-
 }
-
 
 .my-ranking-xp {
-
     font-size: 14px;
-
 }
 
-
-/* =========================================
-   CURRENT USER IN LIST
-========================================= */
-
 .ranking-item.current-user {
-
     border: 2px solid #3f7cff;
-
     background: #eef4ff;
-
 }
 
-
-/* =========================================
-   DARK MODE
-========================================= */
-
-body.dark-mode
-.ranking-item.current-user {
-
+body.dark-mode .ranking-item.current-user {
     background: #24385e;
+}
 
+@media (max-height: 700px) {
+    .leaderboard-page {
+        gap: 7px;
+        padding-top: 8px;
+    }
+    .streak-card {
+        padding: 10px;
+    }
+    .streak-days {
+        margin-top: 8px;
+        padding-top: 7px;
+    }
+    .leaderboard-section {
+        padding: 10px;
+    }
+    .podium {
+        height: 125px;
+    }
 }

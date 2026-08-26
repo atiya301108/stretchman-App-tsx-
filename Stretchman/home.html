@@ -17,165 +17,90 @@
 <body>
 
     <main class="home-page">
-<div class="stats-container">
+        
+        <!-- ส่วนหัวรวม: Profile (บน) -> XP (กลาง) -> Stats (ล่าง) -->
+        <header class="home-header">
+            
+            <!-- 1. โปรไฟล์และต้อนรับผู้ใช้ (อยู่ด้านบนสุด) -->
+            <section class="welcome-card">
+                <div class="welcome-text">
+                    <h2>Hello Atiya!</h2>
+                    <p>Are you experiencing any particular pain today?</p>
+                </div>
+                <div class="profile-container">
+                    <button class="notif-btn">
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+                    <div class="avatar-wrap">
+                        <img src="images/avatar.png" alt="Avatar" class="avatar">
+                        <span class="uid">UID00001</span>
+                    </div>
+                </div>
+            </section>
 
-    <div class="stat-card">
-
-        <span class="stat-icon">
-            🔥
-        </span>
-
-        <div>
-
-            <strong data-streak>
-                0
-            </strong>
-
-            <small>
-                Streak
-            </small>
-
-        </div>
-
-    </div>
-
-
-    <div class="stat-card">
-
-        <span class="stat-icon">
-            🪙
-        </span>
-
-        <div>
-
-            <strong data-coins>
-                0
-            </strong>
-
-            <small>
-                Coins
-            </small>
-
-        </div>
-
-    </div>
-
-</div>
-<div class="xp-container">
-
-    <div class="xp-header">
-
-        <span>
-            Level
-            <strong data-level>1</strong>
-        </span>
-
-        <span data-xp-label>
-            0 / 100 XP
-        </span>
-
-    </div>
-
-
-    <div class="xp-background">
-
-        <div
-            class="xp-fill"
-            data-xp-bar>
-        </div>
-
-    </div>
-
-</div>
-        <div class="top-stats">
-            <div class="stat-badge streak">
-                <i class="fa-solid fa-fire"></i>
-                <span>67</span>
-            </div>
-            <div class="stat-badge coin">
-                <img src="images/coin.png" alt="Coin">
-                <span>6.7M</span>
-            </div>
-        </div>
-
-        <section class="welcome-card">
-            <div class="welcome-text">
-                <h2>Hello Atiya!</h2>
-                <p>Are you experiencing any particular pain today?</p>
-            </div>
-            <div class="profile-container">
-                <button class="notif-btn">
-                    <i class="fa-solid fa-bell"></i>
-                </button>
-                <div class="avatar-wrap">
-                    <img src="images/avatar.png" alt="Avatar" class="avatar">
-                    <span class="uid">UID00001</span>
+            <!-- 2. แถบเลเวลและ XP (อยู่ตรงกลาง) -->
+            <div class="xp-container">
+                <div class="xp-header">
+                    <span>Level <strong data-level>1</strong></span>
+                    <span data-xp-label>0 / 100 XP</span>
+                </div>
+                <div class="xp-background">
+                    <div class="xp-fill" data-xp-bar style="width: 0%;"></div>
                 </div>
             </div>
-        </section>
 
+            <!-- 3. Streak & Coins (อยู่ด้านล่างสุดของส่วนหัว) -->
+            <div class="stats-row">
+                <div class="stat-badge streak">
+                    <i class="fa-solid fa-fire"></i>
+                    <span data-streak>67</span>
+                </div>
+                <div class="stat-badge coin">
+                    <img src="images/coin.png" alt="Coin">
+                    <span data-coins>6.7M</span>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- ส่วนภาพแผนผังร่างกาย (Body Section) -->
         <section class="body-section">
             <img src="images/back.png" alt="Body Map" class="body-image">
         </section>
 
+        <!-- ปุ่ม Start (ปรับสีตาม Figma) -->
         <button class="start-button" id="startBtn">
             Start!
         </button>
 
+        <!-- แถบนำทางด้านล่าง (Bottom Navigation) -->
         <nav class="bottom-nav">
-
-    <a href="home.html"
-       class="nav-item">
-
-        <i class="fa-solid fa-house"></i>
-
-        <span>Home</span>
-
-    </a>
-
-
-    <a href="quest.html"
-       class="nav-item">
-
-        <i class="fa-solid fa-book-open"></i>
-
-        <span>Quest</span>
-
-    </a>
-
-
-    <a href="alarm.html"
-       class="nav-item">
-
-        <i class="fa-solid fa-bell"></i>
-
-        <span>Alarm</span>
-
-    </a>
-
-
-    <a href="shop.html"
-       class="nav-item">
-
-        <i class="fa-solid fa-cart-shopping"></i>
-
-        <span>Shop</span>
-
-    </a>
-
-
-    <a href="settings.html"
-       class="nav-item">
-
-        <i class="fa-solid fa-gear"></i>
-
-        <span>Settings</span>
-</nav>
+            <a href="home.html" class="nav-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="quest.html" class="nav-item">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Quest</span>
+            </a>
+            <a href="alarm.html" class="nav-item">
+                <i class="fa-solid fa-bell"></i>
+                <span>Alarm</span>
+            </a>
+            <a href="shop.html" class="nav-item">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Shop</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
 
     </main>
 
     <script src="js/home.js"></script>
-<script src="js/theme.js"></script>
+    <script src="js/theme.js"></script>
 </body>
 
 </html>
