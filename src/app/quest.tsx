@@ -14,7 +14,6 @@ export default function QuestScreen() {
     const [xp, setXP] = useState(0);
     const [coins, setCoins] = useState(0);
 
-    // โหลดข้อมูล XP และ Coins จากเครื่อง
     const loadQuestRewards = async () => {
         try {
             const storedXP = await AsyncStorage.getItem('stretchmanXP');
@@ -26,7 +25,6 @@ export default function QuestScreen() {
         }
     };
 
-    // อัปเดตข้อมูลเมื่อผู้ใช้กลับมาหน้านี้ (เทียบเท่า window.addEventListener("focus"))
     useFocusEffect(
         useCallback(() => {
             loadQuestRewards();
@@ -35,7 +33,12 @@ export default function QuestScreen() {
 
     return (
         <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.questPage} showsVerticalScrollIndicator={false}>
+            {/* 1. เพิ่ม style={styles.scrollView} เพื่อลบเส้นขาวด้านขวาออก */}
+            <ScrollView 
+                style={styles.scrollView} 
+                contentContainerStyle={styles.questPage} 
+                showsVerticalScrollIndicator={false}
+            >
                 
                 {/* =========================
                     HEADER
@@ -84,7 +87,7 @@ export default function QuestScreen() {
                             <Text style={styles.sectionTitle}>Daily Quest</Text>
                             <Text style={styles.sectionSubtitle}>ภารกิจประจำวัน</Text>
                         </View>
-                        <FontAwesome6 name="calendar-day" size={20} color="rgba(0,0,0,0.6)" />
+                        <FontAwesome6 name="calendar-day" size={20} color="rgba(255,255,255,0.8)" />
                     </View>
 
                     <View style={styles.emptyQuest}>
@@ -105,7 +108,7 @@ export default function QuestScreen() {
                             <Text style={styles.sectionTitle}>Weekly Quest</Text>
                             <Text style={styles.sectionSubtitle}>ภารกิจประจำสัปดาห์</Text>
                         </View>
-                        <FontAwesome6 name="calendar-week" size={20} color="rgba(0,0,0,0.6)" />
+                        <FontAwesome6 name="calendar-week" size={20} color="rgba(255,255,255,0.8)" />
                     </View>
 
                     <View style={styles.emptyQuest}>
@@ -120,9 +123,11 @@ export default function QuestScreen() {
             </ScrollView>
 
             {/* =========================
-                BOTTOM NAV
+                BOTTOM NAV (2. ครอบด้วย View ให้มี Padding เท่ากับหน้า Home)
             ========================= */}
-            <BottomNav activeTab="quest" />
+            <View style={styles.bottomNavContainer}>
+                <BottomNav activeTab="quest" />
+            </View>
         </View>
     );
 }
@@ -133,12 +138,20 @@ export default function QuestScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#f8fafc',
+        backgroundColor: '#1638AE',
+    },
+    scrollView: {
+        flex: 1,
+        width: '100%', // ป้องกันไม่ให้ ScrollView หดและเกิดเส้นขาวด้านขวา
     },
     questPage: {
         paddingHorizontal: 20,
         paddingTop: 25,
-        paddingBottom: 100,
+        paddingBottom: 20,
+    },
+    bottomNavContainer: {
+        paddingHorizontal: 20, // ทำให้เมนูด้านล่างเว้นขอบซ้าย-ขวาตรงกับหน้า Home
+        marginBottom: 15,
     },
     questHeader: {
         flexDirection: 'row',
@@ -149,18 +162,18 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontSize: 28,
         fontWeight: '700',
-        color: '#1e293b',
+        color: '#ffffff',
     },
     headerSubtitle: {
         fontSize: 14,
-        color: '#64748b',
+        color: 'rgba(255, 255, 255, 0.8)',
         marginTop: 5,
     },
     questHeaderIcon: {
         width: 50,
         height: 50,
         borderRadius: 15,
-        backgroundColor: '#2563eb',
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -179,7 +192,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.08,
+        shadowOpacity: 0.1,
         shadowRadius: 8,
         elevation: 3,
     },
@@ -220,23 +233,25 @@ const styles = StyleSheet.create({
     sectionTitle: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#1e293b',
+        color: '#ffffff',
     },
     sectionSubtitle: {
         fontSize: 13,
-        color: '#64748b',
+        color: 'rgba(255, 255, 255, 0.8)',
         marginTop: 3,
     },
     emptyQuest: {
         minHeight: 180,
         borderRadius: 20,
         backgroundColor: 'white',
-        borderWidth: 2,
-        borderColor: '#d8dce5',
-        borderStyle: 'dashed',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 25,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 8,
+        elevation: 3,
     },
     emptyIcon: {
         width: 58,

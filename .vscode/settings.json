@@ -1,7 +1,12 @@
 {
+<<<<<<< HEAD
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
     "source.organizeImports": "explicit",
     "source.sortMembers": "explicit"
   }
 }
+=======
+    "liveServer.settings.port": 5501
+}
+>>>>>>> 92a9ed21bcf4a0aab42bc9460a0ab1520a224a7c

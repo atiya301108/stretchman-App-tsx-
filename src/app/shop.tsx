@@ -38,7 +38,12 @@ export default function ShopScreen() {
 
     return (
         <View style={styles.container}>
-            <ScrollView contentContainerStyle={styles.shopPage} showsVerticalScrollIndicator={false}>
+            {/* เพิ่ม style={styles.scrollView} เพื่อแก้ปัญหาเส้นขอบขาวด้านขวาบนเว็บ */}
+            <ScrollView 
+                style={styles.scrollView} 
+                contentContainerStyle={styles.shopPage} 
+                showsVerticalScrollIndicator={false}
+            >
                 
                 {/* =========================
                     HEADER
@@ -66,7 +71,7 @@ export default function ShopScreen() {
                         </View>
 
                         <Text style={styles.emptyShopTitle}>ร้านค้ากำลังเตรียมตัว</Text>
-                        <Text style={styles.emptyShopDesc}>ตอนนี้นังไม่มีไอเทมในร้านค้า</Text>
+                        <Text style={styles.emptyShopDesc}>ตอนนี้ยังไม่มีไอเทมในร้านค้า</Text>
                         <Text style={styles.emptyShopSpan}>
                             ไว้ระบบเกมพร้อมแล้ว เราจะเพิ่มไอเทมให้คุณ
                         </Text>
@@ -76,9 +81,11 @@ export default function ShopScreen() {
             </ScrollView>
 
             {/* =========================
-                BOTTOM NAV
+                BOTTOM NAV (ครอบด้วย View เพื่อจัดระยะขอบซ้าย-ขวาให้ตรงกับหน้าอื่น)
             ========================= */}
-            <BottomNav activeTab="shop" />
+            <View style={styles.bottomNavContainer}>
+                <BottomNav activeTab="shop" />
+            </View>
         </View>
     );
 }
@@ -91,10 +98,18 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#1638AE',
     },
+    scrollView: {
+        flex: 1,
+        width: '100%', // ป้องกันไม่ให้ ScrollView หดและเกิดเส้นขาวด้านขวาบนเว็บ
+    },
+    bottomNavContainer: {
+        paddingHorizontal: 20, // ทำให้เมนูด้านล่างเว้นขอบซ้าย-ขวาตรงกันทุกหน้า
+        marginBottom: 15,
+    },
     shopPage: {
         paddingHorizontal: 20,
         paddingTop: 25,
-        paddingBottom: 110,
+        paddingBottom: 20,
         flexGrow: 1,
     },
     shopHeader: {

@@ -4,7 +4,8 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { router } from 'expo-router';
 
 interface BottomNavProps {
-    activeTab?: 'home' | 'quest' | 'alarm' | 'shop' | 'setting';
+    // อัปเดต Type ให้ตรงกับที่เรียกใช้จริง
+    activeTab?: 'home' | 'quest' | 'alarm' | 'shop' | 'user' | 'setting';
 }
 
 export default function BottomNav({ activeTab = 'home' }: BottomNavProps) {
@@ -42,13 +43,34 @@ export default function BottomNav({ activeTab = 'home' }: BottomNavProps) {
                 <Text style={activeTab === 'shop' ? styles.navTextActive : styles.navText}>Shop</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity 
-                style={activeTab === 'setting' ? styles.navItemActive : styles.navItem} 
-                onPress={() => router.push('/setting' as any)}
-            >
-                <FontAwesome6 name="gear" size={16} color={activeTab === 'setting' ? '#2475ed' : '#888'} />
-                <Text style={activeTab === 'setting' ? styles.navTextActive : styles.navText}>Settings</Text>
-            </TouchableOpacity>
+            <TouchableOpacity
+    style={
+        activeTab === 'user' || activeTab === 'setting'
+            ? styles.navItemActive
+            : styles.navItem
+    }
+    onPress={() => router.push('/Profile' as any)}
+>
+    <FontAwesome6
+        name="user"
+        size={16}
+        color={
+            activeTab === 'user' || activeTab === 'setting'
+                ? '#2475ed'
+                : '#888'
+        }
+    />
+
+    <Text
+        style={
+            activeTab === 'user' || activeTab === 'setting'
+                ? styles.navTextActive
+                : styles.navText
+        }
+    >
+        Profile
+    </Text>
+</TouchableOpacity>
         </View>
     );
 }
