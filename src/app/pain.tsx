@@ -4,7 +4,7 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import BottomNav from './components/BottomNav';
-import CustomHeader from './components/CustomHeader'; // ดึง CustomHeader มาใช้งาน
+import CustomHeader from './components/CustomHeader';
 
 const hotspotsData = [
     { id: 'neck', label: 'คอ', top: '17%', left: '50%' },
@@ -36,7 +36,7 @@ export default function PainScreen() {
 
     return (
         <View style={styles.container}>
-            {/* เรียกใช้ CustomHeader แบบมาตรฐานเดียวกับหน้าอื่นๆ */}
+            {/* แก้ไขตรง onBack ให้พาร์ทเป็นตัวพิมพ์เล็กทั้งหมด */}
             <CustomHeader 
                 title="Choose Pain Area" 
                 subtitle="เลือกบริเวณที่คุณรู้สึกปวด"
@@ -44,7 +44,8 @@ export default function PainScreen() {
                     if (router.canGoBack()) {
                         router.back();
                     } else {
-                        router.push('/HomeScreen' as any);
+                        // ปรับเป็น /homescreen (ตัวเล็ก)
+                        router.replace('/homescreen');
                     }
                 }}
             />

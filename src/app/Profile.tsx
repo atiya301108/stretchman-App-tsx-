@@ -1,18 +1,17 @@
-import React, { useState, useCallback } from 'react';
+import { FontAwesome6 } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect, useRouter } from 'expo-router';
+import { useCallback, useState } from 'react';
 import {
-    StyleSheet,
-    Text,
-    View,
-    ScrollView,
-    TouchableOpacity,
     Alert,
     Modal,
+    ScrollView,
+    StyleSheet,
+    Text,
     TextInput,
-    Image,
+    TouchableOpacity,
+    View,
 } from 'react-native';
-import { FontAwesome6 } from '@expo/vector-icons';
-import { useRouter, useFocusEffect } from 'expo-router';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomNav from './components/BottomNav';
 
 export default function SettingsScreen() {

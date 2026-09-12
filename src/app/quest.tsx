@@ -4,15 +4,23 @@ import {
     Text,
     View,
     ScrollView,
+    ActivityIndicator,
+    TouchableOpacity
 } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomNav from './components/BottomNav';
+import { getTasksApi } from '../services/api'; // 1. Import API มาใช้งาน
 
 export default function QuestScreen() {
+    const router = useRouter();
     const [xp, setXP] = useState(0);
     const [coins, setCoins] = useState(0);
+    
+    // 2. เพิ่ม State สำหรับเก็บข้อมูลเควสต์และสถานะการโหลด
+    const [quests, setQuests] = useState<any[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const loadQuestRewards = async () => {
         try {
@@ -25,21 +33,33 @@ export default function QuestScreen() {
         }
     };
 
+    // 3. ฟังก์ชันดึงภารกิจจากฐานข้อมูล
+    const loadTasks = async () => {
+        setIsLoading(true);
+        try {
+            const data = await getTasksApi();
+            setQuests(data);
+        } catch (error) {
+            console.log('Failed to load tasks', error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     useFocusEffect(
         useCallback(() => {
             loadQuestRewards();
+            loadTasks(); // เรียกใช้ตอนเปิดหน้านี้
         }, [])
     );
 
     return (
         <View style={styles.container}>
-            {/* 1. เพิ่ม style={styles.scrollView} เพื่อลบเส้นขาวด้านขวาออก */}
             <ScrollView 
                 style={styles.scrollView} 
                 contentContainerStyle={styles.questPage} 
                 showsVerticalScrollIndicator={false}
             >
-                
                 {/* =========================
                     HEADER
                 ========================= */}
@@ -79,7 +99,7 @@ export default function QuestScreen() {
                 </View>
 
                 {/* =========================
-                    DAILY QUEST
+                    DAILY QUEST (อัปเดตให้ดึงจาก Backend)
                 ========================= */}
                 <View style={styles.questSection}>
                     <View style={styles.sectionHeader}>
@@ -90,13 +110,37 @@ export default function QuestScreen() {
                         <FontAwesome6 name="calendar-day" size={20} color="rgba(255,255,255,0.8)" />
                     </View>
 
-                    <View style={styles.emptyQuest}>
-                        <View style={styles.emptyIcon}>
-                            <FontAwesome6 name="list-check" size={24} color="#2563eb" />
+                    {isLoading ? (
+                        <ActivityIndicator size="large" color="#ffffff" style={{ marginVertical: 30 }} />
+                    ) : quests.length === 0 ? (
+                        // ถ้าไม่มีภารกิจ จะโชว์ UI ดีไซน์เดิมของโชค
+                        <View style={styles.emptyQuest}>
+                            <View style={styles.emptyIcon}>
+                                <FontAwesome6 name="list-check" size={24} color="#2563eb" />
+                            </View>
+                            <Text style={styles.emptyTitle}>ยังไม่มีภารกิจ</Text>
+                            <Text style={styles.emptyDesc}>ภารกิจประจำวันจะแสดงที่นี่</Text>
                         </View>
-                        <Text style={styles.emptyTitle}>ยังไม่มีภารกิจ</Text>
-                        <Text style={styles.emptyDesc}>ภารกิจประจำวันจะแสดงที่นี่</Text>
-                    </View>
+                    ) : (
+                        // ถ้ามีภารกิจ จะสร้างการ์ดขึ้นมาแสดงผล
+                        quests.map((quest, index) => (
+                            <View key={index} style={styles.taskCard}>
+                                <View style={styles.taskIconWrap}>
+                                    <FontAwesome6 name="gift" size={20} color="#2563eb" />
+                                </View>
+                                <View style={styles.taskInfo}>
+                                    <Text style={styles.taskTitle}>{quest.title}</Text>
+                                    <Text style={styles.taskDesc}>{quest.description}</Text>
+                                </View>
+                                <TouchableOpacity 
+                                style={styles.taskActionBtn}
+                                onPress={() => router.push({ pathname: '/stretch', params: { taskId: quest.id } })}>
+
+                                    <Text style={styles.taskActionText}>เริ่ม</Text>
+                                </TouchableOpacity>
+                            </View>
+                        ))
+                    )}
                 </View>
 
                 {/* =========================
@@ -123,7 +167,7 @@ export default function QuestScreen() {
             </ScrollView>
 
             {/* =========================
-                BOTTOM NAV (2. ครอบด้วย View ให้มี Padding เท่ากับหน้า Home)
+                BOTTOM NAV
             ========================= */}
             <View style={styles.bottomNavContainer}>
                 <BottomNav activeTab="quest" />
@@ -142,7 +186,7 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         flex: 1,
-        width: '100%', // ป้องกันไม่ให้ ScrollView หดและเกิดเส้นขาวด้านขวา
+        width: '100%',
     },
     questPage: {
         paddingHorizontal: 20,
@@ -150,7 +194,7 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
     },
     bottomNavContainer: {
-        paddingHorizontal: 20, // ทำให้เมนูด้านล่างเว้นขอบซ้าย-ขวาตรงกับหน้า Home
+        paddingHorizontal: 20,
         marginBottom: 15,
     },
     questHeader: {
@@ -273,4 +317,52 @@ const styles = StyleSheet.create({
         marginTop: 7,
         textAlign: 'center',
     },
+    // สไตล์เพิ่มเติมสำหรับการ์ดภารกิจที่มีข้อมูล
+    taskCard: {
+        flexDirection: 'row',
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 16,
+        marginBottom: 12,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 8,
+        elevation: 3,
+    },
+    taskIconWrap: {
+        width: 48,
+        height: 48,
+        borderRadius: 24,
+        backgroundColor: '#eef4ff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 16,
+    },
+    taskInfo: {
+        flex: 1,
+    },
+    taskTitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#1e293b',
+        marginBottom: 4,
+    },
+    taskDesc: {
+        fontSize: 13,
+        color: '#64748b',
+    },
+    taskActionBtn: {
+        backgroundColor: '#2563eb',
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        borderRadius: 20,
+        marginLeft: 10,
+    },
+    taskActionText: {
+        color: 'white',
+        fontSize: 13,
+        fontWeight: 'bold',
+    }
 });

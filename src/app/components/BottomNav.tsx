@@ -13,7 +13,7 @@ export default function BottomNav({ activeTab = 'home' }: BottomNavProps) {
         <View style={styles.bottomNav}>
             <TouchableOpacity 
                 style={activeTab === 'home' ? styles.navItemActive : styles.navItem} 
-                onPress={() => router.push('/HomeScreen' as any)}
+                onPress={() => router.push('/homescreen' as any)}
             >
                 <FontAwesome6 name="house" size={16} color={activeTab === 'home' ? '#2475ed' : '#888'} />
                 <Text style={activeTab === 'home' ? styles.navTextActive : styles.navText}>Home</Text>

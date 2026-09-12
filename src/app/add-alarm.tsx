@@ -5,23 +5,23 @@ import React, {
 } from 'react';
 
 import {
-    StyleSheet,
-    Text,
-    View,
-    ScrollView,
-    TouchableOpacity,
-    Switch,
-    TextInput,
-    NativeSyntheticEvent,
     NativeScrollEvent,
+    NativeSyntheticEvent,
     Platform,
+    ScrollView,
+    StyleSheet,
+    Switch,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from 'react-native';
 
 import { FontAwesome6 } from '@expo/vector-icons';
 
 import {
-    useRouter,
     useLocalSearchParams,
+    useRouter,
 } from 'expo-router';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';

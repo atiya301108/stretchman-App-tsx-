@@ -1,40 +1,82 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { FontAwesome6 } from '@expo/vector-icons';
+import { CameraType, CameraView, useCameraPermissions } from 'expo-camera';
+import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useEffect, useRef, useState } from 'react';
+import { updateTaskApi } from '../services/api';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { updateStreak } from '../utils/streakManager'; // นำเข้าฟังก์ชัน Streak
 import {
+    ActivityIndicator,
+    Alert,
     StyleSheet,
     Text,
-    View,
     TouchableOpacity,
-    Alert,
-    ActivityIndicator,
+    View,
 } from 'react-native';
-import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
-import { FontAwesome6 } from '@expo/vector-icons';
-import { router, useLocalSearchParams } from 'expo-router';
 import BottomNav from './components/BottomNav';
 
 export default function StretchMotionTracking() {
+    const router = useRouter();
+    const { taskId } = useLocalSearchParams();
     const params = useLocalSearchParams();
 
-    // รับชื่อท่าและเวลาจากหน้าก่อนหน้า
     const exerciseName =
         typeof params.name === 'string' ? params.name : 'ท่ายืดกล้ามเนื้อ';
 
     const exerciseTime =
         typeof params.time === 'string' ? parseInt(params.time, 10) || 5 : 5;
 
-    // Camera Permission & State
     const [permission, requestPermission] = useCameraPermissions();
     const [cameraType, setCameraType] = useState<CameraType>('front');
     const [cameraRunning, setCameraRunning] = useState(false);
 
-    // Timer State
     const [remainingSeconds, setRemainingSeconds] = useState(exerciseTime);
     const [timerRunning, setTimerRunning] = useState(false);
 
-    // Tracking Message State
     const [trackingMessage, setTrackingMessage] = useState('กำลังเตรียมเปิดกล้อง...');
-
     const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+    // ==========================================
+    // 1. ฟังก์ชันจัดการเมื่อเวลาหมด (ส่งเควสต์ + รับรางวัล + Streak)
+    // ==========================================
+    const handleFinishStretch = async () => {
+        try {
+            // อัปเดตสถานะเควสต์ในฐานข้อมูล
+            if (taskId) {
+                await updateTaskApi(Number(taskId), true);
+                console.log('✅ อัปเดตภารกิจสำเร็จ!');
+            }
+
+            // คำนวณรางวัล XP และ Coins
+            const currentXP = await AsyncStorage.getItem('stretchmanXP');
+            const currentCoins = await AsyncStorage.getItem('stretchmanCoins');
+            
+            const newXP = (parseInt(currentXP || '0', 10) + 50).toString(); // แจก 50 XP
+            const newCoins = (parseInt(currentCoins || '0', 10) + 10).toString(); // แจก 10 Coins
+            
+            await AsyncStorage.setItem('stretchmanXP', newXP);
+            await AsyncStorage.setItem('stretchmanCoins', newCoins);
+            
+            // อัปเดตและดึงค่า Streak ล่าสุด
+            const newStreak = await updateStreak();
+            console.log(`🔥 ทำต่อเนื่องเป็นวันที่ ${newStreak} แล้ว!`);
+
+        } catch (error) {
+            console.error('❌ เกิดข้อผิดพลาดในการจบภารกิจ:', error);
+        } finally {
+            // ไม่ว่าจะสำเร็จหรือพัง ก็ให้เปลี่ยนไปหน้า Complete
+            router.replace('/complete' as any);
+        }
+    };
+
+    // ==========================================
+    // 2. จับตาดูเวลา ถ้าถึง 0 ให้เรียกฟังก์ชันจบเควสต์
+    // ==========================================
+    useEffect(() => {
+        if (remainingSeconds === 0) {
+            handleFinishStretch();
+        }
+    }, [remainingSeconds]);
 
     // ==========================================
     // Auto-Start Camera when permission granted
@@ -43,10 +85,10 @@ export default function StretchMotionTracking() {
         if (permission?.granted && !cameraRunning) {
             handleStartCamera();
         }
-    }, [permission?.granted]);
+    }, [permission?.granted]); 
 
     // ==========================================
-    // Timer Effect (นับถอยหลัง & เปลี่ยนหน้าอัตโนมัติเมื่อหมดเวลา)
+    // Timer Effect (นับถอยหลัง)
     // ==========================================
     useEffect(() => {
         if (!timerRunning) return;
@@ -60,11 +102,7 @@ export default function StretchMotionTracking() {
                     }
                     setTimerRunning(false);
                     setCameraRunning(false);
-
-                    // 🚀 เปลี่ยนหน้าไปหน้า Complete อัตโนมัติเมื่อเวลาหมด
-                    router.replace('/complete' as any);
-
-                    return 0;
+                    return 0; // ให้เหลือ 0 เพื่อทริกเกอร์ useEffect ด้านบน
                 }
                 return prev - 1;
             });
@@ -96,7 +134,6 @@ export default function StretchMotionTracking() {
         setCameraRunning(true);
         setTrackingMessage('กำลังค้นหาตำแหน่งร่างกาย...');
 
-        // จำลองการตรวจจับเจอแล้วเริ่มจับเวลา
         setTimeout(() => {
             setTrackingMessage('✓ กำลังยืดกล้ามเนื้อ...');
             setTimerRunning(true);
@@ -318,7 +355,7 @@ export default function StretchMotionTracking() {
                 </TouchableOpacity>
             </View>
 
-            {/* SKIP BUTTON (ปรับให้ใหญ่และเด่นชัดขึ้นแทนที่ปุ่มเดิม) */}
+            {/* SKIP BUTTON */}
             <TouchableOpacity
                 style={styles.skipButton}
                 onPress={handleSkip}

@@ -1,7 +1,6 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function CompleteScreen() {
   const router = useRouter();
@@ -108,7 +107,7 @@ export default function CompleteScreen() {
       <View style={styles.completeActions}>
         <TouchableOpacity 
           style={styles.primaryButton} 
-          onPress={() => router.replace('/HomeScreen')}
+          onPress={() => router.replace('/homescreen' as any)}
         >
           <FontAwesome6 name="house" size={16} color="#fff" />
           <Text style={styles.primaryButtonText}>กลับหน้าหลัก</Text>
@@ -116,7 +115,7 @@ export default function CompleteScreen() {
 
         <TouchableOpacity 
           style={styles.secondaryButton} 
-          onPress={() => router.replace('/stretch')}
+          onPress={() => router.replace('/stretch' as any)}
         >
           <FontAwesome6 name="person-running" size={16} color="#43a5ff" />
           <Text style={styles.secondaryButtonText}>ยืดอีกครั้ง</Text>

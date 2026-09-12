@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Modal, Pressable } from 'react-native';
-import { FontAwesome6, FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, FontAwesome6 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
-import BottomNav from './components/BottomNav'; // <-- 1. นำเข้า BottomNav ที่สร้างใหม่
+import { useState } from 'react';
+import { Image, Modal, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import BottomNav from './components/BottomNav';
 
 export default function HomeScreen() {
     const [menuVisible, setMenuVisible] = useState(false);
@@ -68,7 +68,7 @@ export default function HomeScreen() {
                 <Image source={require('../../assets/images/back.png')} style={styles.bodyImage} resizeMode="contain" />
             </View>
 
-            {/* ส่วนปุ่ม Start และ เมนูด้านล่าง */}
+            {/* ส่วนปุ่ม Start */}
             <View style={styles.bottomSection}>
                 <TouchableOpacity onPress={() => router.push('/pain' as any)}>
                     <LinearGradient
@@ -80,8 +80,10 @@ export default function HomeScreen() {
                         <Text style={styles.startText}>Start!</Text>
                     </LinearGradient>
                 </TouchableOpacity>
+            </View>
 
-                {/* 2. เรียกใช้ BottomNav กลางแทนที่โค้ดเมนูเดิม */}
+            {/* 2. ย้าย BottomNav ออกมาอยู่ชั้นนอกสุด และดัน zIndex ให้สูงที่สุด */}
+            <View style={styles.navWrapper}>
                 <BottomNav activeTab="home" />
             </View>
 
@@ -243,13 +245,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 5,
+        zIndex: 1, // ลดลำดับชั้นลง
     },
     bodyImage: {
         width: '100%',
         height: '100%',
     },
     bottomSection: {
-        marginBottom: 15,
+        marginBottom: 10, // ปรับให้ปุ่ม Start ไม่ติดกับเมนูด้านล่างเกินไป
+        zIndex: 2,
     },
     startButton: {
         width: '100%',
@@ -257,7 +261,6 @@ const styles = StyleSheet.create({
         borderRadius: 26,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 12,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.2,
@@ -269,7 +272,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
     },
-    // สไตล์ของ bottomNav เดิมถูกย้ายไปไว้ในไฟล์ BottomNav.tsx แล้วเพื่อความสะอาด
+    navWrapper: {
+        zIndex: 999, // ดันเมนูให้มาอยู่หน้าสุดเสมอ ป้องกันการโดนบัง
+        elevation: 10,
+        paddingBottom: 15, // ดันให้สูงจากขอบจอเล็กน้อย
+    },
     modalOverlay: {
         flex: 1,
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
