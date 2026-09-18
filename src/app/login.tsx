@@ -120,6 +120,14 @@ export default function LoginScreen() {
         )}
       </TouchableOpacity>
 
+      {/* เพิ่มปุ่ม ข้ามไปหน้า Home (Dev Mode) */}
+      <TouchableOpacity 
+        style={styles.devBypassButton} 
+        onPress={() => router.replace('/homescreen' as any)}
+      >
+        <Text style={styles.devBypassText}>[Dev Mode] ข้ามไปหน้า Home</Text>
+      </TouchableOpacity>
+
       <View style={styles.dividerContainer}>
         <View style={styles.divider} />
         <Text style={styles.dividerText}>OR</Text>
@@ -203,10 +211,10 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   inputError: {
-    borderColor: '#EF4444', // กรอบสีแดง
+    borderColor: '#EF4444', 
   },
   errorText: {
-    color: '#EF4444', // ตัวหนังสือสีแดง
+    color: '#EF4444', 
     fontSize: 12,
     marginTop: 8,
     fontWeight: '500',
@@ -222,6 +230,18 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontWeight: 'bold',
     fontSize: 16,
+  },
+  devBypassButton: {
+    backgroundColor: '#475569',
+    padding: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 15,
+  },
+  devBypassText: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+    fontSize: 14,
   },
   dividerContainer: {
     flexDirection: 'row',

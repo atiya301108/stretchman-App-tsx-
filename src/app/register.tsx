@@ -152,6 +152,15 @@ export default function RegisterScreen() {
           >
             {isLoading ? <ActivityIndicator color="#fff" /> : <Text style={styles.signUpButtonText}>CREATE ACCOUNT</Text>}
           </TouchableOpacity>
+
+          {/* เพิ่มปุ่ม ข้ามไปหน้า Home (Dev Mode) */}
+          <TouchableOpacity 
+            style={styles.devBypassButton} 
+            onPress={() => router.replace('/homescreen' as any)}
+          >
+            <Text style={styles.devBypassText}>[Dev Mode] ข้ามไปหน้า Home</Text>
+          </TouchableOpacity>
+
         </View>
 
         <View style={styles.footer}>
@@ -295,6 +304,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 14,
     letterSpacing: 0.5,
+  },
+  devBypassButton: {
+    backgroundColor: '#475569',
+    padding: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 15,
+  },
+  devBypassText: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+    fontSize: 14,
   },
   footer: {
     flexDirection: 'row',
